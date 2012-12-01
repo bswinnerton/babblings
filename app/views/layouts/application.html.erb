@@ -90,13 +90,12 @@
         <div id="header">
         <div id="header_inner">
             <div id="logo">
-                <h1><a href="">babblings</a></h1>
+                <h1><%= link_to "babblings", root_path %></h1>
             </div>
             <div id="links">
                 <ul>
-                    <li><a href="">Login</a></li>
-                    <li><a href="">Help</a></li>
-                    <li><a href="">Blog</a></li>
+                    <li><%= link_to "Help", help_path %></li>
+                    <li>Login</li>
                 </ul>
             </div>
         </div>
