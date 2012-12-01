@@ -1,9 +1,7 @@
-<h1>All Posts</h1>
-
-<ul>
-  <% @posts.each do |post| %>
-    <li>
+<% @posts.each do |post| %>
+  <div id="container">
+    <div class="contentBox" id="noText">
       <%= post.title %>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+<% end %>
