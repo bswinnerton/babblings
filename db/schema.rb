@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20121201014448) do
     t.boolean  "is_hidden",        :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
-    t.string   "type"
+    t.string   "post_type"
     t.text     "title"
     t.text     "content"
     t.text     "original_path"

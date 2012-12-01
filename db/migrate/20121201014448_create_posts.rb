@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration
 			t.boolean :is_deleted, :default => 0
 			t.boolean :is_hidden, :default => 0
       t.timestamps
-			t.string :type
+			t.string :post_type
 			t.text :title
 			t.text :content
 			t.text :original_path
