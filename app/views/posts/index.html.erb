@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
   <div id="container">
     <div class="contentBox" id="noText">
-      <%= post.title %>
+      <%= format_type(post.id, post.post_type, post.content, post.width_thumbnail, post.height_thumbnail, "all", "http://s3.babblin.gs/").html_safe %>
     </div>
   </div>
 <% end %>
