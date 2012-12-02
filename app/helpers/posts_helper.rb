@@ -14,9 +14,9 @@ module PostsHelper
     case type
     when "image"
       if view == "all"
-        content = "<a href=\"posts/view/" + postid.to_s + "\"><img src=\"" + environment + "images/thumbnails/posts/" + content + "\" width=\"280\" height=\"" + adjustedHeight.to_s + "\" /></a>"
+        content = "<a href=\"posts/view/" + postid.to_s + "\"><img src=\"" + environment + "images/thumbnails/posts/" + content + "\" width=\"280\" height=\"" + height.to_s + "\" /></a>"
       else
-        content = "<img src=\"" + environment + "images/posts/" + content + "\" width=\"" + width.to_s + "\" height=\"" + height.to_s + "\" />";
+        content = "<img src=\"" + environment + "images/posts/" + content + "\" width=\"" + width.to_s + "\" height=\"" + adjustedHeight.to_s + "\" />";
       end 
     when "youtube"
       content = "<iframe width=\"280\" height=\"158\" src=\"http://www.youtube.com/embed/" + content + "?showinfo=0\" frameborder=\"0\"></iframe>"
