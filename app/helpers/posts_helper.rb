@@ -25,7 +25,7 @@ module PostsHelper
     when "spotify"
       content = "<iframe src=\"https://embed.spotify.com/?uri=spotify:track:" + content + "&amp;view=coverart\" width=\"280\" height=\"360\" frameborder=\"0\" allowtransparency=\"true\"></iframe>"
     when "text"
-      content = "<div postid=\"text\">" + content + "</div>"
+      content = "<div id=\"text\">" + content + "</div>"
     end 
 
     return content
