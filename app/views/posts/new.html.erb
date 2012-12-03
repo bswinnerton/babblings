@@ -1,0 +1,8 @@
+<div id="textbar">
+    <%= form_for(@post) do |f| %>
+      <% @post.errors.full_messages.each do |error| %>
+          <div id="error"><%= error %></div>
+      <% end %>
+      <%= f.text_field :content, :value => "enter your text, image, or video" %>
+    <% end %>
+</div>
