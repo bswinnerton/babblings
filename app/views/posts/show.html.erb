@@ -1,0 +1,8 @@
+<div id="containerSingleOuter">
+    <div id="containerSingleInner">
+        <div class="contentBox" id="noText">
+        <%= format_type(@posts.id, @posts.post_type, @posts.content, @posts.width, @posts.height, "single", "http://s3.babblin.gs/").html_safe %>
+        </div>
+    </div>
+  <div class="clear"></div>
+</div>
