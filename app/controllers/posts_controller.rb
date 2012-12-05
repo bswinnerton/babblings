@@ -17,6 +17,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    @post = Post.new(
+      author: '1',
+      content: params[:post][:content],
+      post_type: params[:post][:content]
+    )
+    @post.save
   end
 end
