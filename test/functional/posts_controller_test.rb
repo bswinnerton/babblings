@@ -16,12 +16,11 @@ class PostsControllerTest < ActionController::TestCase
 		assert_select '.contentBox', minimum: 5
 	end
 
-	# TODO: fix so that 15 is dynamic in sitewide variable
-	test "should get second page if greater than 15 posts" do
-		if Post.all.count > 15
-			get(:page, {'page' => 0})
+	test "should get second page if greater than config.items_per_page" do
+		if Post.all.count > Rails.configuration.items_per_page
+			get(:page, {'page' => 1})
     	assert_response :success
-    	assert_select '.contentBox', minimum: 15
+    	assert_select '.contentBox', minimum: Rails.configuration.items_per_page
 		end
 	end
 
