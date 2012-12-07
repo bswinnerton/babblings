@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+
   def index
-    @posts = Post.where(:is_deleted => 0, :is_hidden => 0).limit(15).order('created_at DESC')
+    @posts = Post.where(:is_deleted => 0, :is_hidden => 0).limit(Rails.configuration.items_per_page).order('created_at DESC')
   end
 
   def show
@@ -8,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def page
-    @posts = Post.where(:is_deleted => 0, :is_hidden => 0).limit(15).offset(params[:page].to_i * 15).order('created_at DESC')
+    @posts = Post.where(:is_deleted => 0, :is_hidden => 0).limit(Rails.configuration.items_per_page).offset(params[:page].to_i * Rails.configuration.items_per_page).order('created_at DESC')
     render :layout => false
   end
   

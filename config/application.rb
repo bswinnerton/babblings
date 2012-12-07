@@ -58,5 +58,8 @@ module BabblinGs
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+		# babblings specific below this line
+    config.items_per_page = 15
   end
 end
