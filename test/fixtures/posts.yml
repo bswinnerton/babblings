@@ -5,14 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 image:
-  id: 144
   author: 1
   is_deleted: 0
   is_hidden: 0
   created_at: 2012-11-25 15:47:11
   updated_at: 2012-11-25 15:47:11
   post_type: image
-  title:
   content: 67d3763affbf778f279fcbc8ea66c57b.jpg
   original_path: http://a1.s6img.com/cdn/0007/p/1140979_9220555_lz.jpg
   width: 600
@@ -20,62 +18,42 @@ image:
   width_thumbnail: 280
   height_thumbnail: 187
 vimeo:
-  id: 115
   author: 1
   is_deleted: 0
   is_hidden: 0
   created_at: 2012-11-06 23:49:04
   updated_at: 2012-11-06 23:49:04
   post_type: vimeo
-  title:
   content: 49643332
   original_path: http://vimeo.com/49643332
   width: 280
   height: 158
-  width_thumbnail: NULL
-  height_thumbnail: NULL
 spotify:
-  id: 100
   author: 1
   is_deleted: 0
   is_hidden: 0
   created_at: 2012-10-23 21:21:03
   updated_at: 2012-10-23 21:21:03
   post_type: spotify
-  title:
   content: 71waKYDRl7DuRNaVXQkTMd
   original_path: spotify:track:2Fw3Heu6kvivVv4S3JOLs0
-  width: NULL
   height: 600
-  width_thumbnail: NULL
-  height_thumbnail: NULL
 youtube:
-  id: 122
   author: 1
   is_deleted: 0
   is_hidden: 0
   created_at: 2012-11-14 09:12:40
   updated_at: 2012-11-14 09:12:40
   post_type: youtube
-  title:
   content: ZSt9tm3RoUU
   original_path: http://www.youtube.com/watch?feature=player_embedded&v=ZSt9tm3RoUU
   width: 280
   height: 158
-  width_thumbnail: NULL
-  height_thumbnail: NULL
 text:
-  id: 71
   author: 1
   is_deleted: 0
   is_hidden: 0
   created_at: 2012-09-19 17:01:07
   updated_at: 2012-09-19 17:01:07
   post_type: text
-  title:
   content: If God created the world, his primary worry was certainly not to make its understanding easy for us.<br /><br />-Albert Einstein
-  original_path: NULL
-  width: NULL
-  height: NULL
-  width_thumbnail: NULL
-  height_thumbnail: NULL
