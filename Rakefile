@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-BabblinGs::Application.load_tasks
+Babblings::Application.load_tasks
