@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   attr_accessible :author, :content, :post_type
-  validates :content, :presence => true
+  validates :content, :post_type, :presence => true
   before_create :set_type
 
   def set_type
@@ -16,4 +16,5 @@ class Post < ActiveRecord::Base
       self.post_type = 'text'
     end
   end
+
 end
