@@ -4,7 +4,7 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-144:
+image:
   id: 144
   author: 1
   is_deleted: 0
@@ -19,184 +19,63 @@
   height: 400
   width_thumbnail: 280
   height_thumbnail: 187
-145:
-  id: 145
+vimeo:
+  id: 115
   author: 1
   is_deleted: 0
   is_hidden: 0
-  created_at: 2012-11-25 15:47:49
-  updated_at: 2012-11-25 15:47:49
-  post_type: image
+  created_at: 2012-11-06 23:49:04
+  updated_at: 2012-11-06 23:49:04
+  post_type: vimeo
   title:
-  content: be45f5094b3ca87936e36727de92ebe3.jpg
-  original_path: http://a1.s6img.com/cdn/box_003/post_13/453736_12210941_lz.jpg
-  width: 400
+  content: 49643332
+  original_path: http://vimeo.com/49643332
+  width: 280
+  height: 158
+  width_thumbnail: NULL
+  height_thumbnail: NULL
+spotify:
+  id: 100
+  author: 1
+  is_deleted: 0
+  is_hidden: 0
+  created_at: 2012-10-23 21:21:03
+  updated_at: 2012-10-23 21:21:03
+  post_type: spotify
+  title:
+  content: 71waKYDRl7DuRNaVXQkTMd
+  original_path: spotify:track:2Fw3Heu6kvivVv4S3JOLs0
+  width: NULL
   height: 600
-  width_thumbnail: 280
-  height_thumbnail: 420
-146:
-  id: 146
+  width_thumbnail: NULL
+  height_thumbnail: NULL
+youtube:
+  id: 122
   author: 1
   is_deleted: 0
   is_hidden: 0
-  created_at: 2012-11-25 15:48:12
-  updated_at: 2012-11-25 15:48:12
-  post_type: image
+  created_at: 2012-11-14 09:12:40
+  updated_at: 2012-11-14 09:12:40
+  post_type: youtube
   title:
-  content: 16f1e161d4b115c108fcab0bdd07f9d1.jpg
-  original_path: http://a1.s6img.com/cdn/0007/p/1110213_5986023_lz.jpg
-  width: 600
-  height: 600
-  width_thumbnail: 280
-  height_thumbnail: 280
-147:
-  id: 147
+  content: ZSt9tm3RoUU
+  original_path: http://www.youtube.com/watch?feature=player_embedded&v=ZSt9tm3RoUU
+  width: 280
+  height: 158
+  width_thumbnail: NULL
+  height_thumbnail: NULL
+text:
+  id: 71
   author: 1
   is_deleted: 0
   is_hidden: 0
-  created_at: 2012-11-25 15:48:25
-  updated_at: 2012-11-25 15:48:25
-  post_type: image
+  created_at: 2012-09-19 17:01:07
+  updated_at: 2012-09-19 17:01:07
+  post_type: text
   title:
-  content: a6b972d30589546e7d7916dbd53211b1.jpg
-  original_path: http://a1.s6img.com/cdn/box_004/post_14/531587_10572412_lz.jpg
-  width: 600
-  height: 450
-  width_thumbnail: 280
-  height_thumbnail: 210
-148:
-  id: 148
-  author: 1
-  is_deleted: 0
-  is_hidden: 0
-  created_at: 2012-11-25 15:51:36
-  updated_at: 2012-11-25 15:51:36
-  post_type: image
-  title:
-  content: fffcb0e57c5e21b4514b0dafcc7bd082.jpg
-  original_path: http://a1.s6img.com/cdn/box_002/post_12/344339_13085334_lz.jpg
-  width: 600
-  height: 401
-  width_thumbnail: 280
-  height_thumbnail: 188
-149:
-  id: 149
-  author: 1
-  is_deleted: 1
-  is_hidden: 0
-  created_at: 2012-11-25 15:51:51
-  updated_at: 2012-11-25 15:51:51
-  post_type: image
-  title:
-  content: 052433195c099fc3bc2eaec595ba1a3e.jpg
-  original_path: http://a1.s6img.com/cdn/box_006/post_16/749635_13468146_lz.jpg
-  width: 424
-  height: 600
-  width_thumbnail: 280
-  height_thumbnail: 397
-150:
-  id: 150
-  author: 1
-  is_deleted: 0
-  is_hidden: 0
-  created_at: 2012-11-25 15:52:05
-  updated_at: 2012-11-25 15:52:05
-  post_type: image
-  title:
-  content: 6b31ea2e5970d974e2fb59007f50d622.jpg
-  original_path: http://a1.s6img.com/cdn/box_006/post_16/863478_15153732_lz.jpg
-  width: 480
-  height: 600
-  width_thumbnail: 280
-  height_thumbnail: 350
-151:
-  id: 151
-  author: 1
-  is_deleted: 1
-  is_hidden: 0
-  created_at: 2012-11-25 15:55:10
-  updated_at: 2012-11-25 15:55:10
-  post_type: image
-  title:
-  content: c0d6f80c8e0515b75be5888dc4887e97.jpg
-  original_path: http://a1.s6img.com/cdn/0008/p/1870525_11533487_lz.jpg
-  width: 418
-  height: 600
-  width_thumbnail: 280
-  height_thumbnail: 402
-152:
-  id: 152
-  author: 1
-  is_deleted: 0
-  is_hidden: 0
-  created_at: 2012-11-27 21:14:37
-  updated_at: 2012-11-27 21:14:37
-  post_type: image
-  title:
-  content: 40c1cbdcdc3969439e372a624368ad17.jpg
-  original_path: http://i.imgur.com/TdLmQ.jpg
-  width: 500
-  height: 332
-  width_thumbnail: 280
-  height_thumbnail: 186
-153:
-  id: 153
-  author: 1
-  is_deleted: 0
-  is_hidden: 0
-  created_at: 2012-11-28 16:29:12
-  updated_at: 2012-11-28 16:29:12
-  post_type: image
-  title:
-  content: 9b322169b536879efab7ad57aa7560bd.jpg
-  original_path: http://i.imgur.com/njlFb.jpg
-  width: 1000
-  height: 667
-  width_thumbnail: 280
-  height_thumbnail: 187
-154:
-  id: 154
-  author: 1
-  is_deleted: 0
-  is_hidden: 0
-  created_at: 2012-11-29 14:30:43
-  updated_at: 2012-11-29 14:30:43
-  post_type: image
-  title:
-  content: 8e9fccc5ca04f7c8666f907c6435a680.png
-  original_path: http://i.imgur.com/CzCBV.png
-  width: 1600
-  height: 1063
-  width_thumbnail: 280
-  height_thumbnail: 187
-155:
-  id: 155
-  author: 1
-  is_deleted: 0
-  is_hidden: 0
-  created_at: 2012-11-30 09:28:03
-  updated_at: 2012-11-30 09:28:03
-  post_type: image
-  title:
-  content: 0bc419b2ceea158761bd7a932d078c52.jpg
-  original_path: http://apod.nasa.gov/apod/image/1211/2012-11_CygnusHPd_2k.jpg
-  width: 2000
-  height: 2000
-  width_thumbnail: 280
-  height_thumbnail: 280
-156:
-  id: 156
-  author: 1
-  is_deleted: 0
-  is_hidden: 0
-  created_at: 2012-11-30 15:45:42
-  updated_at: 2012-11-30 15:45:42
-  post_type: image
-  title:
-  content: c26a0cae5fd3833350e06aefc2164e6a.png
-  original_path: http://imgs.xkcd.com/comics/two_years.png
-  width: 713
-  height: 745
-  width_thumbnail: 280
-  height_thumbnail: 293
-
+  content: If God created the world, his primary worry was certainly not to make its understanding easy for us.<br /><br />-Albert Einstein
+  original_path: NULL
+  width: NULL
+  height: NULL
+  width_thumbnail: NULL
+  height_thumbnail: NULL
