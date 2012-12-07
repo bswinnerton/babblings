@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def page
     @posts = Post.where(:is_deleted => 0, :is_hidden => 0).limit(15).offset(params[:page].to_i * 15).order('created_at DESC')
-    render :layout => 0
+    render :layout => false
   end
   
   def new
