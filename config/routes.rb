@@ -1,6 +1,6 @@
 BabblinGs::Application.routes.draw do
   root :to => 'posts#index'
-  resources :posts
+  resources :posts, :except => :destroy
   match "/posts/page/:page" => "posts#page"
   match "/help" => "help#index"
 end
