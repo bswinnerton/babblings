@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author, :content, :post_type
+  attr_accessible :author, :content, :post_type, :is_deleted, :is_hidden
   validates :content, :post_type, :presence => true
   before_create :set_type
 
