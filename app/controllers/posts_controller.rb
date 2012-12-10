@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post = Post.new(
       author: '1',
       content: params[:post][:content],
-      post_type: params[:post][:content],
+      post_type: params[:post][:content]
     )
     @post.save
     render :action => :success
