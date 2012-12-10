@@ -30,7 +30,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-#gem 'rest-open-uri'
 gem 'paperclip'
 gem 'aws-sdk'
 
