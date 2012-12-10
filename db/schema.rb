@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20121201014448) do
     t.integer  "author"
     t.boolean  "is_deleted",       :default => false
     t.boolean  "is_hidden",        :default => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "post_type"
     t.text     "title"
     t.text     "content"
