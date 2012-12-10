@@ -16,7 +16,7 @@ class PostsControllerTest < ActionController::TestCase
     assert_select '.contentBox', minimum: 5
   end
 
-  test "should get second page if greater than items_per_page" do
+  test "should get second page if count greater than items_per_page" do
     if Post.all.count > Rails.configuration.items_per_page
       get(:page, {'page' => 1})
       assert_response :success
