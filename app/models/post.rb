@@ -34,10 +34,7 @@ class Post < ActiveRecord::Base
     end
   end
 
-  has_attached_file :image, {
-    :url => "/system/:hash.:extension",
-    :hash_secret => "correctHorseBatteryStaple"
-  }
+  has_attached_file :image, :styles => { :thumbnail => "280x" }
 
   def image_from_url(url)
     self.image = URI.parse(url)
