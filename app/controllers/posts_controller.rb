@@ -23,6 +23,7 @@ class PostsController < ApplicationController
       content: params[:post][:content],
       post_type: params[:post][:content]
     )
+    @post.image_from_url(params[:post][:content])
     @post.save
     render :action => :success
   end
