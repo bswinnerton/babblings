@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201014448) do
+ActiveRecord::Schema.define(:version => 20121213040313) do
 
   create_table "posts", :force => true do |t|
     t.integer  "author"
-    t.boolean  "is_deleted",       :default => false
-    t.boolean  "is_hidden",        :default => false
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.boolean  "is_deleted",         :default => false
+    t.boolean  "is_hidden",          :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "post_type"
     t.text     "title"
     t.text     "content"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(:version => 20121201014448) do
     t.integer  "height"
     t.integer  "width_thumbnail"
     t.integer  "height_thumbnail"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end
