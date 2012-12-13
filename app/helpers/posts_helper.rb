@@ -12,7 +12,7 @@ module PostsHelper
     case post.post_type
     when "image"
       if controller.action_name == "index"
-        post.content = image_tag post.image.url, :width => post.width_thumbnail, :height => post.height_thumbnail
+        post.content = image_tag post.image.url(:thumbnail), :width => post.width_thumbnail, :height => post.height_thumbnail
       else
         post.content = image_tag post.image.url #with larger WxH
       end 
