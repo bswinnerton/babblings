@@ -4,6 +4,6 @@
   <% else %>
     <div class="contentBox" id="noText">
   <% end %>
-      <%= format_type(post.id, post.post_type, post.content, post.width_thumbnail, post.height_thumbnail, "all", "http://s3.babblin.gs/").html_safe %>
+      <%= format_type(post).html_safe %>
     </div>
 <% end %>
