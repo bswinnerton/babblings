@@ -37,4 +37,5 @@ doc/
 
 ## Added by Brooks
 config/database.yml
+config/environments/development.rb
 ## End Added by Brooks
