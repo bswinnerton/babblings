@@ -12,9 +12,9 @@ module PostsHelper
     case post.post_type
     when "image"
       if controller.action_name == "index"
-        post.content = image_tag post.image.url(:thumbnail), :width => post.width_thumbnail, :height => post.height_thumbnail
+        post.content = link_to image_tag(post.image.url(:thumbnail), :width => post.width_thumbnail, :height => post.height_thumbnail), post_path(post)
       else
-        post.content = image_tag post.image.url #with larger WxH
+        post.content = image_tag post.image.url(:large)
       end 
     when "youtube"
       post.content = "<iframe width=\"280\" height=\"158\" src=\"http://www.youtube.com/embed/" + post.content + "?showinfo=0\" frameborder=\"0\"></iframe>"
