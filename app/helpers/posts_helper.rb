@@ -11,7 +11,7 @@ module PostsHelper
 
     case post.post_type
     when "image"
-      if controller.action_name == "index"
+      if controller.action_name == "index" || controller.action_name == "show"
         post.content = link_to image_tag(post.image.url(:thumbnail), :width => post.width_thumbnail, :height => post.height_thumbnail), post_path(post)
       else
         post.content = image_tag post.image.url(:large)
