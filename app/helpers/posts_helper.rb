@@ -14,7 +14,7 @@ module PostsHelper
       if params[:action] == "index" || params[:action] == "page"
         post.content = link_to image_tag(post.image.url(:thumbnail), :width => post.width_thumbnail, :height => post.height_thumbnail), post_path(post)
       else
-        post.content = image_tag post.image.url(:large)
+        post.content = image_tag post.image.url(:large), :width => post.width, :height => post.height
       end 
     when "youtube"
       post.content = "<iframe width=\"280\" height=\"158\" src=\"http://www.youtube.com/embed/" + post.content + "?showinfo=0\" frameborder=\"0\"></iframe>"
