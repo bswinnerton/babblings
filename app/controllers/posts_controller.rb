@@ -19,12 +19,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(
-      author: '1',
-      content: params[:post][:content],
-      post_type: params[:post][:content]
+      content: params[:post][:content]
     )
-    @post.get_image_from_url(params[:post][:content])
-    @post.set_image_dimensions
+    @post.set_values
+    if @post.post_type == "image"
+      @post.get_image_from_url(params[:post][:content])
+      @post.set_image_dimensions
+    end
     render :action => :success if @post.save
   end
 
