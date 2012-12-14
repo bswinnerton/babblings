@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   validates :content, :post_type, :presence => true
   validate :image_dimensions, :unless => "errors.any?"
   before_create :set_values
+  has_attached_file :image, :styles => { :thumbnail => "280x", :large => "960x" }
 
   def set_values
     # Image
@@ -33,8 +34,6 @@ class Post < ActiveRecord::Base
       self.post_type = 'text'
     end
   end
-
-  has_attached_file :image, :styles => { :thumbnail => "280x", :large => "960x" }
 
   def image_from_url(url)
     self.image = URI.parse(url)
