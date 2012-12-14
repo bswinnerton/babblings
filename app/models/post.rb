@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author, :content, :post_type, :is_deleted, :is_hidden
+  attr_accessible :author, :content, :post_type, :is_deleted, :is_hidden, :original_path
   validates :content, :post_type, :presence => true
   before_create :set_values
   has_attached_file :image, :styles => { :thumbnail => "280x", :large => "960x" }
