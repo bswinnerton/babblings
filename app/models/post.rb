@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
   attr_accessible :author, :content, :post_type, :is_deleted, :is_hidden
   validates :content, :post_type, :presence => true
-  validate :image_dimensions, :unless => "errors.any?"
   before_create :set_values
   has_attached_file :image, :styles => { :thumbnail => "280x", :large => "960x" }
 
@@ -35,17 +34,14 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def image_from_url(url)
+  def get_image_from_url(url)
     self.image = URI.parse(url)
   end
 
-  def image_dimensions
+  def set_image_dimensions
     dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
     self.width = dimensions.width
     self.height = dimensions.height
-    if dimensions.width < 280 && dimensions.height < 280
-      errors.add(:image,'Width or height must be at least 280px')
-    end
 
     ratio = dimensions.height / dimensions.width
     self.width_thumbnail = "280"
