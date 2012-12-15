@@ -38,4 +38,5 @@ doc/
 ## Added by Brooks
 config/database.yml
 config/environments/development.rb
+*.swp
 ## End Added by Brooks
