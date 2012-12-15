@@ -1,7 +1,10 @@
 class Post < ActiveRecord::Base
   attr_accessible :author, :content, :post_type, :is_deleted, :is_hidden
   validates :content, :post_type, :presence => true
-  has_attached_file :image, :styles => { :thumbnail => "280x", :large => "960x" }
+  has_attached_file :image, 
+    :styles => { :thumbnail => "280x", :large => "960x" },
+    :url => ':s3_alias_url',
+    :path => '/:class/:attachment/:id_partition/:style/:filename'
 
   def set_values
     # Image
