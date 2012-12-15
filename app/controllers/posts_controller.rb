@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def delete
     @post = Post.update(params[:id], :is_deleted => true)
-    render :action => :succes if @post.save
+    render :action => :success if @post.save
   end
 
   def undelete
