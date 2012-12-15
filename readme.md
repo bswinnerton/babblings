@@ -47,7 +47,7 @@ Get rails
 --------
     wget --no-check-certificate https://raw.github.com/joshfng/railsready/master/railsready.sh && bash railsready.sh
     echo -e "source ~/.bashrc" | tee -a ~/.bash_profile && source ~/.bash_profile
-    rvm install ruby-1.9.3-p327 #hopefully to be fixed
+    rvm install ruby-1.9.3-p327 #hopefully to be fixed: https://github.com/joshfng/railsready/issues/28#issuecomment-11102427
     sudo apt-get install nodejs
 
 Clone application
@@ -78,8 +78,19 @@ Optional passenger install (`rvmsudo rails s -p 80` otherwise)
 
 Optional heroku install
 --------
+    wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+    heroku login
+    heroku git:remote -a <remote_name>
+
     heroku config:add DATABASE_URL="mysql2://<username>:<password>@<host>/<database>"
     heroku config:add AWS_ACCESS_KEY_ID="<AWS_ACCESS_KEY>"
     heroku config:add AWS_SECRET_ACCESS_KEY="<AWS_SECRET_ACCESS_KEY>"
     heroku config add AWS_BUCKET="<S3_BUCKET_NAME>"
     heroku config:add S3_HOST_ALIAS="<S3_DNS_CNAME>"
+
+    git push heroku master
+    heroku ps:scale web=1
+
+========
+[More Info][mi]
+[mi]: https://devcenter.heroku.com/articles/rails3
