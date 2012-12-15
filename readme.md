@@ -1,3 +1,41 @@
+# babblings
+---------
+
+### Introduction ###
+
+babblings is a tumblr-like platform that can incorporate various types of media in a masonry format. Acceptable content is:
+
+1. Image (ending in .jpg, .png, .gif, etc):
+
+    http://farm7.staticflickr.com/6119/6278651452_15a629cbe7.jpg
+
+2. Youtube:
+
+    http://www.youtube.com/watch?v=yRvJylbSg7o&feature=g-all-lik
+
+3. Vimeo:
+
+    http://vimeo.com/6671508
+
+4. Spotify URI:
+
+    spotify:track:5xioIP2HexKl3QsI8JDlG8
+
+5. Text:
+
+    ಠ_ಠ
+
+### Direction ###
+
+babblings is designed to be a "relational content engine". It will be able to analyze the content that is being submitted and show related content based on the subject matter.
+
+### Help ###
+
+Please feel free to direct any questions or comments to the [issue tracker], located on GitHub. Installation instructions can be found below.
+
+  [issue tracker]: https://github.com/bswinnerton/babblings/issues
+
+
 # Ubuntu 12.04.1 EC2 t1.micro Install
 --------
 
