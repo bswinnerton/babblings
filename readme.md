@@ -7,23 +7,23 @@ babblings is a tumblr-like platform that can incorporate various types of media 
 
 1. Image (ending in .jpg, .png, .gif, etc):
 
-    http://farm7.staticflickr.com/6119/6278651452_15a629cbe7.jpg
+    `http://farm7.staticflickr.com/6119/6278651452_15a629cbe7.jpg`
 
 2. Youtube
 
-    http://www.youtube.com/watch?v=yRvJylbSg7o&feature=g-all-lik
+    `http://www.youtube.com/watch?v=yRvJylbSg7o&feature=g-all-lik`
 
 3. Vimeo:
 
-    http://vimeo.com/6671508
+    `http://vimeo.com/6671508`
 
 4. Spotify URI:
 
-    spotify:track:5xioIP2HexKl3QsI8JDlG8
+    `spotify:track:5xioIP2HexKl3QsI8JDlG8`
 
 5. Text:
 
-    ಠ_ಠ
+    `ಠ_ಠ`
 
 ### Direction ###
 
