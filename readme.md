@@ -75,3 +75,11 @@ Optional passenger install (`rvmsudo rails s -p 80` otherwise)
     sudo ln -s /etc/apache2/sites-available/babblin.gs.vhost /etc/apache2/sites-enabled/babblin.gs.vhost
     sudo rm /etc/apache2/sites-enabled/000-default
     sudo service apache2 restart
+
+Optional heroku install
+--------
+    heroku config:add DATABASE_URL="mysql2://<username>:<password>@<host>/<database>"
+    heroku config:add AWS_ACCESS_KEY_ID="<AWS_ACCESS_KEY>"
+    heroku config:add AWS_SECRET_ACCESS_KEY="<AWS_SECRET_ACCESS_KEY>"
+    heroku config add AWS_BUCKET="<S3_BUCKET_NAME>"
+    heroku config:add S3_HOST_ALIAS="<S3_DNS_CNAME>"
