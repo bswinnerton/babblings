@@ -90,7 +90,7 @@ babblings Install
 ### Configure application ###
     cp config/database.yml.inc config/database.yml
     bundle install
-    rvmsudo rake db:migrate #if first run
+    rvmsudo rake db:setup #if first run
 
 ### Optional passenger install (`rvmsudo rails s -p 80` otherwise) ###
     sudo apt-get install apache2-mpm-prefork apache2-prefork-dev libapr1-dev libaprutil1-dev
