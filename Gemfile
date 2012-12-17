@@ -14,6 +14,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'better_errors'
+  gem 'binding_of_caller' # dependency of better_errors
 end
 
 # Gems used only for assets and not required
