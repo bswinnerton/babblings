@@ -5,6 +5,10 @@ class Post < ActiveRecord::Base
     :styles => { :thumbnail => "280x", :large => "960x" },
     :url => ':s3_alias_url',
     :path => '/:class/:attachment/:id_partition/:style/:filename'
+  default_scope where(:is_deleted => false)
+  scope :active, where(:is_hidden => false)
+  scope :recent, order('created_at DESC')
+  scope :limited, limit(Rails.configuration.items_per_page)
 
   def set_values
     # Image

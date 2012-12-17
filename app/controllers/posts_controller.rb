@@ -1,15 +1,15 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.where(:is_deleted => false, :is_hidden => false).limit(Rails.configuration.items_per_page).order('created_at DESC')
+    @posts = Post.active.limited.recent
   end
 
   def show
-    @posts = Post.find(params[:id], :conditions => ['is_deleted = ?', false])
+    @posts = Post.find(params[:id])
   end
 
   def page
-    @posts = Post.where(:is_deleted => false, :is_hidden => false).limit(Rails.configuration.items_per_page).offset(params[:page].to_i * Rails.configuration.items_per_page).order('created_at DESC')
+    @posts = Post.active.limited.offset(params[:page].to_i * Rails.configuration.items_per_page).recent
     render :layout => false
   end
   
