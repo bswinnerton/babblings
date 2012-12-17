@@ -37,7 +37,6 @@ GEM
     better_errors (0.0.7)
       coderay
       erubis
-    binding_of_caller (0.6.8)
     builder (3.0.4)
     cocaine (0.4.2)
     coderay (1.0.8)
@@ -136,7 +135,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   better_errors
-  binding_of_caller
   coffee-rails (~> 3.2.1)
   jquery-rails
   mysql2
