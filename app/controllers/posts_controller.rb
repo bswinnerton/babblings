@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def undelete
-    @post = Post.update(params[:id], :is_deleted => false)
+    @post = Post.unscoped.update(params[:id], :is_deleted => false)
     render :action => :success if @post.save
   end
 
