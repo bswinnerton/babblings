@@ -4,11 +4,12 @@ class Post < ActiveRecord::Base
   scope :active, where(:is_hidden => false)
   scope :recent, order('created_at DESC')
   scope :limited, limit(Rails.configuration.items_per_page)
+  
   validates :content, :post_type, :presence => true
   has_attached_file :image, 
-    :styles => { :thumbnail => "280x", :large => "960x" },
-    :url => ':s3_alias_url',
-    :path => '/:class/:attachment/:id_partition/:style/:filename'
+                    styles: { thumbnail: "280x", large: "960x" },
+                    url: ':s3_alias_url',
+                    path: '/:class/:attachment/:id_partition/:style/:filename'
 
   def set_values
     # Image
