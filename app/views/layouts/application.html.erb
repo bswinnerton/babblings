@@ -1,51 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="Author" content="Brooks Swinnerton, brooks@rockthepost.com" />
-    <meta name="Description" content="babblings of the internet, all in one place." />
-    <meta property="og:title" content="babblings of the internet" />
-    <meta property="og:type" content="blog" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="babblings." />
-    <meta property="og:description" content="babblings of the internet" />
-    <%= csrf_meta_tags %>
-    <title>babblings of thee</title>
-    <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"/>
-    <%= stylesheet_link_tag "application" %> 
-    <%= javascript_include_tag "application" %>
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34310072-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Brooks Swinnerton, brooks@rockthepost.com" />
+  <meta name="Description" content="babblings of the internet, all in one place." />
+  <meta property="og:title" content="babblings of the internet" />
+  <meta property="og:type" content="blog" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="babblings." />
+  <meta property="og:description" content="babblings of the internet" />
+  <%= csrf_meta_tags %>
+  <title>babblings of thee</title>
+  <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css" />
+  <%= favicon_link_tag %>
+  <%= stylesheet_link_tag 'application' %> 
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'ga' %>
 </head>
 <body>
-        <% if params[:page] == nil %>
-        <div id="header">
-        <div id="header_inner">
-            <div id="logo">
-                <h1><%= link_to "babblings", root_path %></h1>
-            </div>
-            <div id="links">
-                <ul>
-                    <li><%= link_to "Help", help_path %></li>
-                    <li>Login</li>
-                </ul>
-            </div>
+  <% if params[:page] == nil %>
+    <div id="header">
+      <div id="header_inner">
+        <div id="logo">
+          <h1><%= link_to "babblings", root_path %></h1>
         </div>
-        <% end %>
+        <div id="links">
+          <ul>
+            <li><%= link_to "Help", help_path %></li>
+            <li>Login</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <%= yield %>
+  <% end %>
+  <%= yield %>
 </body>
 </html>
