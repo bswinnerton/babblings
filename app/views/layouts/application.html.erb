@@ -18,21 +18,21 @@
   <%= javascript_include_tag 'application' %>
 </head>
 <body>
-  <% if params[:page] == nil %>
-    <div id="header">
-      <div id="header_inner">
-        <div id="logo">
-          <h1><%= link_to "babblings", root_path %></h1>
-        </div>
-        <div id="links">
-          <ul>
-            <li><%= link_to "Help", help_path %></li>
-            <li>Login</li>
-          </ul>
-        </div>
+<% if params[:page] == nil %>
+  <div id="header">
+    <div id="header_inner">
+      <div id="logo">
+        <h1><%= link_to "babblings", root_path %></h1>
+      </div>
+      <div id="links">
+        <ul>
+          <li><%= link_to "Help", help_path %></li>
+          <li>Login</li>
+        </ul>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
   <%= yield %>
 </body>
 </html>
