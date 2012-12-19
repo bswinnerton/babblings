@@ -85,7 +85,7 @@ babblings Install
     sudo mkdir -p /var/www/babblin.gs/
     sudo chown <username>:<username> /var/www/babblin.gs/
     cd /var/www/babblin.gs/
-    git clone https://github.com/bswinnerton/babblings-ruby.git .
+    git clone https://github.com/bswinnerton/babblings.git .
 
 ### Configure application ###
     cp config/database.yml.inc config/database.yml
