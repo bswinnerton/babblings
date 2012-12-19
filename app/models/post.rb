@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   attr_accessible :author, :content, :post_type, :is_deleted, :is_hidden
+
   default_scope where(:is_deleted => false)
   scope :active, where(:is_hidden => false)
   scope :recent, order('created_at DESC')
