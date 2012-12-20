@@ -60,7 +60,7 @@ Ubuntu 12.04.1 EC2 t1.micro Install
     sudo -u <username> mkdir /home/<username>/.ssh/
     sudo cp .ssh/authorized_keys /home/<username>/.ssh/
     sudo chown <username>:<username> /home/<username>/.ssh/authorized_keys
-    sudo adduser albert admin
+    sudo adduser <username> admin
 
 ### Install updates ###
     sudo apt-get update && sudo apt-get -y dist-upgrade
@@ -76,9 +76,9 @@ babblings Install
 --------
 
 ### Get rails ###
-    wget --no-check-certificate https://raw.github.com/joshfng/railsready/master/railsready.sh && bash railsready.sh
-    echo -e "source ~/.bashrc" | tee -a ~/.bash_profile && source ~/.bash_profile
-    rvm install ruby-1.9.3-p327 #hopefully to be fixed: https://github.com/joshfng/railsready/issues/28#issuecomment-11102427
+    sudo apt-get install gcc make
+    curl -L https://get.rvm.io | bash -s stable --rails
+    source ~/.rvm/scripts/rvm
     sudo apt-get install nodejs
 
 ### Clone application ###
