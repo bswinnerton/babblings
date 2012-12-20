@@ -60,7 +60,7 @@ Ubuntu 12.04.1 EC2 t1.micro Install
     sudo -u <username> mkdir /home/<username>/.ssh/
     sudo cp .ssh/authorized_keys /home/<username>/.ssh/
     sudo chown <username>:<username> /home/<username>/.ssh/authorized_keys
-    sudo adduser albert admin
+    sudo adduser <username> admin
 
 ### Install updates ###
     sudo apt-get update && sudo apt-get -y dist-upgrade
