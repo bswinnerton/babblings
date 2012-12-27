@@ -1,123 +1,123 @@
 body {
-	background-image:url('/assets/background.png');
-	background-repeat: repeat;
+  background-image:url('/assets/background.png');
+  background-repeat: repeat;
 }
 
 #header {
-	height:50px;
-	background-color:#fff;
-	width:100%;
-	border-bottom:1px solid #000;
-	margin-bottom:20px;
-	border-bottom: 1px solid #CACACA;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4),
-				0 0px 10px rgba(0, 0, 0, 0.1); 
-	background-image: -webkit-linear-gradient(top, #FAFAFA, #EAEAEA);
+  height:50px;
+  background-color:#fff;
+  width:100%;
+  border-bottom:1px solid #000;
+  margin-bottom:20px;
+  border-bottom: 1px solid #CACACA;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0px 10px rgba(0, 0, 0, 0.1); 
+  background-image: -webkit-linear-gradient(top, #FAFAFA, #EAEAEA);
 }
 
 #header_inner {
-	width:942px;
-	margin-left:auto;
-	margin-right:auto;
+  width:942px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #header_inner h1 {
-	padding-top:8px;
-	font-family: 'Lobster', cursive;
-	font-size:32px;
-	color:#3BAFCC;
-	float:left;
+  padding-top:8px;
+  font-family: 'Lobster', cursive;
+  font-size:32px;
+  color:#3BAFCC;
+  float:left;
 }
 
 #header_inner h1 a {
-	text-decoration: none;
-	color: #3BAFCC;
+  text-decoration: none;
+  color: #3BAFCC;
 }
 
 #header_inner h1 a:hover {
-	text-decoration: none;
-	color: #2b83a0;
+  text-decoration: none;
+  color: #2b83a0;
 }
 
 #header_inner #links a {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 
 #header_inner #links a:hover {
-	text-decoration: none;
-	color: #2b83a0;
+  text-decoration: none;
+  color: #2b83a0;
 }
 
 #header_inner #links li {
-	display: inline;
-	list-style: none;
-	float: right;
-	font-family: 'Lato', sans-serif;
-	font-size: 18px;
-	padding-top: 14px;
-	margin-right: 20px;
+  display: inline;
+  list-style: none;
+  float: right;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  padding-top: 14px;
+  margin-right: 20px;
 }
 
 #container {
-	width: 942px;
-	margin-left: auto;
-	margin-right: auto;
+  width: 942px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #containerSingleOuter {
-	float: right;
-	right: 50%;
-	position: relative;
+  float: right;
+  right: 50%;
+  position: relative;
 }
 
 #containerSingleInner {
-	float: right;
-	right: -50%;
-	position: relative;
+  float: right;
+  right: -50%;
+  position: relative;
 }
 
 .clear {
-	clear: both;
+  clear: both;
 }
 
 .contentBox {
-	margin: 10px;
-	float: left;
-	box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
-	background-color: #FFF;
-	border: 1px solid #A0A0A0;
+  margin: 10px;
+  float: left;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
+  border: 1px solid #A0A0A0;
 }
 
 .noText {
-	padding: 5px 5px 40px 5px;
+  padding: 5px 5px 40px 5px;
 }
 
 .contentBox img {
-	border: 1px solid #D8D8D8;
+  border: 1px solid #D8D8D8;
 }
 
 #textbar {
-	left: 50%;
-	top: 50%;
-	position: absolute;
-	width: 600px;
-	height: 50px;
-	margin-left: -300px;
-	margin-top: -50px;
-	background: #FFFFFF;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  width: 600px;
+  height: 50px;
+  margin-left: -300px;
+  margin-top: -50px;
+  background: #FFFFFF;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 input {
-	width: 574px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 3px;
-	height: 38px;
-	font-size: 28px;
-	text-align: center;
+  width: 574px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 3px;
+  height: 38px;
+  font-size: 28px;
+  text-align: center;
 }
 
 #text {
@@ -155,10 +155,10 @@ input {
 }
 
 #errorView {
-	font-family: 'Lobster', cursive;
-	text-align: center;
-	font-size: 54px;
-	vertical-align: middle;
-	color: #333;
-	margin-top: 15%;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 54px;
+  vertical-align: middle;
+  color: #333;
+  margin-top: 15%;
 }
