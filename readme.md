@@ -76,7 +76,7 @@ babblings Install
 --------
 
 ### Get rails ###
-    sudo apt-get install gcc make nodejs
+    sudo apt-get install gcc make zlib1g-dev nodejs
     curl -L https://get.rvm.io | bash -s stable --rails
     source ~/.rvm/scripts/rvm
 
