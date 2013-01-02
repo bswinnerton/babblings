@@ -76,10 +76,9 @@ babblings Install
 --------
 
 ### Get rails ###
-    sudo apt-get install gcc make
+    sudo apt-get install gcc make nodejs
     curl -L https://get.rvm.io | bash -s stable --rails
     source ~/.rvm/scripts/rvm
-    sudo apt-get install nodejs
 
 ### Clone application ###
     sudo mkdir -p /var/www/babblin.gs/
