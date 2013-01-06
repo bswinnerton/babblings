@@ -1,5 +1,6 @@
 # babblings
 ---------
+[![Build Status](https://travis-ci.org/bswinnerton/babblings.png?branch=master)](https://travis-ci.org/bswinnerton/babblings)
 
 ### Introduction ###
 
