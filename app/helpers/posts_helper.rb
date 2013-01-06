@@ -1,13 +1,7 @@
 module PostsHelper
 
   def format_type(post)
-    if post.post_type == "image" && controller.action_name == "show"
-      if post.width > 960 
-        ratio = post.height.to_f / post.width.to_f
-        post.width = 960 
-        post.height = ratio * 960 
-      end 
-    end 
+    fit_to_max_width(post) if post.post_type == "image" && controller.action_name == "show"
 
     case post.post_type
     when "image"
@@ -27,6 +21,14 @@ module PostsHelper
     end 
 
     return post.content
+  end
+
+  def fit_to_max_width(post)
+    if post.width > 960
+      ratio = post.height.to_f / post.width.to_f
+      post.width = 960
+      post.height = ratio * 960
+    end
   end
 
 end
