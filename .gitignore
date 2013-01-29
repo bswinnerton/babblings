@@ -39,4 +39,5 @@ doc/
 config/database.yml
 config/environments/development.rb
 *.swp
+.DS_Store
 ## End Added by Brooks
