@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
 
   def set_values
     # Image
-    if content =~ /(\.jpg|\.png|\.bmp|\.gif)$/
+    if content =~ /(\.jpg|\.JPG|\.png|\.PNG|\.bmp|\.BMP|\.gif|\.GIF)$/
       self.post_type = 'image'
       self.original_path = self.content
     # YouTube
