@@ -1,21 +1,30 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'json', '1.7.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'thin'
-
 group :production do
   gem 'mysql2'
+  gem 'newrelic_rpm'
+end
+
+group :development do
+  gem 'sqlite3'
+  gem 'pry'
+  gem 'better_errors'
+  gem 'binding_of_caller' # dependency of better_errors
+  gem 'brakeman'
+end
+
+group :test do
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'better_errors'
-  gem 'binding_of_caller' # dependency of better_errors
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 # Gems used only for assets and not required
@@ -28,6 +37,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'bootstrap-sass'
 end
 
 gem 'jquery-rails'
