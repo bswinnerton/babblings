@@ -6,7 +6,8 @@ class Post < ActiveRecord::Base
   scope :recent, order('created_at DESC')
   scope :limited, limit(Rails.configuration.items_per_page)
   
-  validates :content, :post_type, :presence => true
+  validates :content, :presence => true
+  before_save :set_values
   has_attached_file :image, 
                     styles: { thumbnail: "280x", large: "960x" },
                     url: ':s3_alias_url',
@@ -17,6 +18,8 @@ class Post < ActiveRecord::Base
     if content =~ /(\.jpg|\.JPG|\.png|\.PNG|\.bmp|\.BMP|\.gif|\.GIF)$/
       self.post_type = 'image'
       self.original_path = self.content
+      get_image_from_url(content)
+      set_image_dimensions
     # YouTube
     elsif content =~ /(#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be\/)[^&\n]+#)/
       self.post_type = 'youtube'

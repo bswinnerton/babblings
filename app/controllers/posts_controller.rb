@@ -18,15 +18,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(
-      content: params[:post][:content]
-    )
-    @post.set_values
-    if @post.post_type == "image"
-      @post.get_image_from_url(params[:post][:content])
-      @post.set_image_dimensions
+    @post = Post.new(params[:post])
+
+    if @post.save
+      redirect_to @post, notice: 'It worked!'
+    else
+      render action: :new
     end
-    render :action => :success if @post.save
   end
 
   def delete
