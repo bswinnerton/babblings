@@ -16,6 +16,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # dependency of better_errors
   gem 'brakeman'
+  gem 'awesome_print'
 end
 
 group :test do
