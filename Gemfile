@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 group :production do
   gem 'mysql2'
   gem 'newrelic_rpm'
+  gem 'unicorn'
 end
 
 group :development do
