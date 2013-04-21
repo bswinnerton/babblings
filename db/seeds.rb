@@ -5,3 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Post.create!([
+{
+  content: 'http://i.imgur.com/meilraK.gif'
+},
+{
+  content: 'spotify:track:5iqtsXxZGiN31wlVcbMyaZ'
+},
+{
+  content: 'http://www.youtube.com/watch?feature=player_embedded&v=3gTf-wBUSgM'
+},
+{
+  content: 'http://vimeo.com/63653873'
+},
+{
+  content: 'Life is what happens when you make other plans my friend.'
+}
+])

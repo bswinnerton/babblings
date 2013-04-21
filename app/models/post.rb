@@ -9,16 +9,14 @@ class Post < ActiveRecord::Base
   validates :content, :presence => true
   before_save :set_values
   has_attached_file :image, 
-                    styles: { thumbnail: "280x", large: "960x" },
-                    url: ':s3_alias_url',
-                    path: '/:class/:attachment/:id_partition/:style/:filename'
+                    styles: { thumbnail: "280x", large: "960x" }
 
   def set_values
     # Image
     if content =~ /(\.jpg|\.JPG|\.png|\.PNG|\.bmp|\.BMP|\.gif|\.GIF)$/
       self.post_type = 'image'
       self.original_path = self.content
-      get_image_from_url(content)
+      self.image = URI.parse(content)
       set_image_dimensions
     # YouTube
     elsif content =~ /(#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be\/)[^&\n]+#)/
@@ -43,10 +41,6 @@ class Post < ActiveRecord::Base
     else
       self.post_type = 'text'
     end
-  end
-
-  def get_image_from_url(url)
-    self.image = URI.parse(url)
   end
 
   def set_image_dimensions
