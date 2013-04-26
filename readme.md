@@ -1,6 +1,8 @@
 # babblings
 ---------
 [![Build Status](https://travis-ci.org/bswinnerton/babblings.png?branch=master)](https://travis-ci.org/bswinnerton/babblings)
+[![Dependency Status](https://gemnasium.com/bswinnerton/babblings.png)](https://gemnasium.com/bswinnerton/babblings)
+[![Code Climate](https://codeclimate.com/github/bswinnerton/babblings.png)](https://codeclimate.com/github/bswinnerton/babblings)
 
 ### Introduction ###
 
