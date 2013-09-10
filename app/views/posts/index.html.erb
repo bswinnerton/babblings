@@ -1,3 +1,5 @@
 <% @posts.each do |post| %>
-  <%= post.content %>
+  <div class="img-thumbnail">
+      <%= image_tag post.content %>
+  </div>
 <% end %>
