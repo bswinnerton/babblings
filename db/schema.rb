@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20130909231235) do
     t.text     "original_path"
     t.integer  "width"
     t.integer  "height"
+    t.integer  "width_thumbnail"
+    t.integer  "height_thumbnail"
     t.boolean  "is_deleted"
     t.datetime "created_at"
     t.datetime "updated_at"

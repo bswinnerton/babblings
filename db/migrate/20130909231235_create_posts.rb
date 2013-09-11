@@ -7,6 +7,8 @@ class CreatePosts < ActiveRecord::Migration
       t.text :original_path
       t.integer :width
       t.integer :height
+      t.integer :width_thumbnail
+      t.integer :height_thumbnail
       t.boolean :is_deleted
 
       t.timestamps
