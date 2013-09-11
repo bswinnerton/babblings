@@ -9,13 +9,13 @@ describe "posts" do
   it "displays all of the posts" do
     visit root_path
 
-    expect(page).to have_content @post1.content
-    expect(page).to have_content @post2.content
+    expect(page).to have_css 'img', @post1.content
+    expect(page).to have_css 'img', @post2.content
   end
 
   it "displays individual posts" do
     visit post_path(@post1)
 
-    expect(page).to have_content @post1.content
+    expect(page).to have_css 'img', @post1.content
   end
 end
