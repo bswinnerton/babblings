@@ -1,9 +1,12 @@
 <div class="row">
-  <div class="col-lg-offset-1 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
-    <% @posts.each do |post| %>
-      <div class="img-thumbnail post-box">
-        <%= link_to image_tag(post.content, width: post.width_thumbnail), post %>
+  <% @posts.to_enum.with_index(1).each do |post, i| %>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4">
+      <%= link_to image_tag(post.content, class: 'img-responsive img-thumbnail'), post %>
+    </div>
+
+    <% if i % 3 == 0 %>
       </div>
+      <div class="row">
     <% end %>
-  </div>
+  <% end %>
 </div>
