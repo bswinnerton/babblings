@@ -18,4 +18,11 @@ describe "posts" do
 
     expect(page).to have_css 'img', @post1.content
   end
+
+  it "links to original content on show page" do
+    visit post_path(@post1)
+    find('a.post-link').click
+
+    expect(page.current_url).to eq(@post1.original_path)
+  end
 end
