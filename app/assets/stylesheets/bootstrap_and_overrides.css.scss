@@ -26,3 +26,22 @@ body {
     color: #E0E0E0;
   }
 }
+
+hr {
+  padding: 0;
+  border: none;
+  border-top: medium double #CCC;
+  color: #333;
+  text-align: center;
+  width: 80%;
+}
+
+hr:after {
+  content: "§";
+  display: inline-block;
+  position: relative; 
+  top: -0.7em;  
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: #EBECED;
+}
