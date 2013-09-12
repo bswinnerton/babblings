@@ -21,8 +21,7 @@ describe "posts" do
 
   it "links to original content on show page" do
     visit post_path(@post1)
-    find('a.post-link').click
 
-    expect(page.current_url).to eq(@post1.original_path)
+    expect(page).to have_selector "a[href='#{@post1.original_path}']"
   end
 end
