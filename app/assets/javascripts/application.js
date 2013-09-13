@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require imagesloaded
+//= require masonry
+//= require posts
 //= require_tree .
