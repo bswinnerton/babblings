@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var $container = $('.container');
+  var $container = $('.masonry');
 
   $container.imagesLoaded( function() {
     $container.masonry({

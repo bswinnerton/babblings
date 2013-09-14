@@ -1,5 +1,7 @@
-<% @posts.each do |post| %>
-  <div class="post-box col-lg-4 col-md-4 col-sm-4">
-    <%= link_to image_tag(post.content, class: 'img-responsive img-thumbnail'), post %>
-  </div>
-<% end %>
+<div class="masonry">
+  <% @posts.each do |post| %>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4">
+      <%= link_to image_tag(post.content, class: 'img-responsive img-thumbnail'), post %>
+    </div>
+  <% end %>
+</div>
