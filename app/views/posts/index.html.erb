@@ -1,7 +1,7 @@
 <div class="masonry">
   <% @posts.each do |post| %>
     <div class="post-box col-lg-4 col-md-4 col-sm-4">
-      <%= link_to image_tag(post.content, class: 'img-responsive img-thumbnail'), post %>
+      <%= link_to image_tag(post.content, class: 'img-responsive img-thumbnail', width: calculate_width, height: calculate_height(post.width, post.height)), post %>
     </div>
   <% end %>
 </div>

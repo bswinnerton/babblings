@@ -21,20 +21,6 @@ describe PostsController do
 
       expect(assigns(:posts)).to match_array([post1, post2])
     end
-
-    it "calculates thumbnail widths" do
-      post1 = FactoryGirl.create(:post)
-      get :index
-
-      expect(assigns(:posts).first.width_thumbnail).to eq(280)
-    end
-
-    it "calculates thumbnail heights" do
-      post1 = FactoryGirl.create(:post)
-      get :index
-
-      expect(assigns(:posts).first.height_thumbnail).to eq(280)
-    end
   end
 
   describe 'GET #show' do
