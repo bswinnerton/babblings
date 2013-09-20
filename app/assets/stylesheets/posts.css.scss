@@ -10,3 +10,19 @@
   padding-bottom: 15px;
   padding-top: 15px;
 }
+
+.new-post {
+  margin-top: 20%;
+  margin-bottom: 25%;
+  background: #FFFFFF;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  input {
+    font-size: 28px;
+    text-align: center;
+    width: 100%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+}

@@ -24,4 +24,10 @@ describe "posts" do
 
     expect(page).to have_selector "a[href='#{@post1.original_path}']"
   end
+
+  it "shows the new post page" do
+    visit new_post_path
+
+    expect(page).to have_field('post_content', with: 'enter your text, image, or video')
+  end
 end
