@@ -7,15 +7,14 @@ describe "Posts ->" do
       expect(page).to have_field('post_content')
     end
 
-    it 'creates a new post and redirects to the show page' do #, js: true do
+    it 'creates a new post and redirects to the show page', js: true do
       new_youtube_post = FactoryGirl.attributes_for(:post, :youtube)
-      new_youtube_post_url = new_youtube_post[:content].match(/(#{Post::SUPPORTED_FORMATS.join("|")}):(.*)$/).captures.second # Borrowed from Post::determine_format
       visit new_post_path
+      click_button 'format_button'
+      click_link new_youtube_post[:format]
       fill_in 'post_content', with: new_youtube_post[:content]
       click_button 'Submit'
-      #find(:xpath, '//input[@id=\'post_content\']').native.send_keys(:return)
-      #page.driver.execute_script("$('input#post_content').trigger($.Event('keydown', { keyCode: 13 }));")
-      expect(page).to have_xpath "//iframe[contains(@src, '#{new_youtube_post_url}')]"
+      expect(page).to have_xpath "//iframe[contains(@src, '#{new_youtube_post[:content]}')]"
     end
 
     it 'does not allow the user to submit a blank post' do

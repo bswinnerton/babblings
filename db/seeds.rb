@@ -9,30 +9,37 @@
 Post.create([
   {
     user_id: 1,
-    content: 'image:http://25.media.tumblr.com/6366ef0adce32aa104e01bf58a29ceca/tumblr_msnl3ayMxU1rsnzy2o5_500.jpg'
+    format: 'image',
+    content: 'http://25.media.tumblr.com/6366ef0adce32aa104e01bf58a29ceca/tumblr_msnl3ayMxU1rsnzy2o5_500.jpg'
   },
   {
     user_id: 1,
-    content: 'youtube:http://www.youtube.com/watch?v=kCCHn1cWhOg',
+    format: 'youtube',
+    content: 'kCCHn1cWhOg',
   },
   {
     user_id: 1,
-    content: 'vimeo:https://vimeo.com/63502573',
+    format: 'vimeo',
+    content: '63502573',
   },
   {
     user_id: 1,
-    content: 'quote:You are on a rock floating through space',
+    format: 'quote',
+    content: 'You are on a rock floating through space',
   },
   {
     user_id: 1,
-    content: 'spotify:spotify:track:4HujwzHGxXQ9BkrqW3lIfJ',
+    format: 'spotify',
+    content: 'spotify:track:4HujwzHGxXQ9BkrqW3lIfJ',
   },
   {
     user_id: 1,
-    content: 'soundcloud:https://soundcloud.com/radiohead/bloom_jamie-xx-rework-part-3',
+    format: 'soundcloud',
+    content: 'https://soundcloud.com/radiohead/bloom_jamie-xx-rework-part-3',
   },
   {
     user_id: 1,
-    content: 'definition:antidisestablishmentarianism',
+    format: 'definition',
+    content: 'antidisestablishmentarianism',
   }
 ])
