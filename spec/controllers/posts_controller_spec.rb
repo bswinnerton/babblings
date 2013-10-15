@@ -14,7 +14,7 @@ describe PostsController do
     end
 
     it "loads all of the posts into @posts" do
-      post1, post2 = FactoryGirl.create(:post), FactoryGirl.create(:post)
+      post1, post2 = FactoryGirl.create(:post, :spotify), FactoryGirl.create(:post, :spotify)
       get :index
       expect(assigns(:posts)).to match_array([post1, post2])
     end
@@ -22,7 +22,7 @@ describe PostsController do
 
   describe 'GET #show' do
     before :each do
-      @post1 = FactoryGirl.create(:post)
+      @post1 = FactoryGirl.create(:post, :youtube)
     end
 
     it "responds successfully with an HTTP 200 status code" do
@@ -55,9 +55,15 @@ describe PostsController do
     end
 
     it "creates a new instance of Post" do
-      @post = Post.new
       get :new
       expect(assigns(:post)).to_not eq(nil)
+    end
+  end
+
+  describe 'POST #create' do
+    it "create post and redirect to it" do
+      expect { post :create, post: FactoryGirl.attributes_for(:post, :vimeo) }.to change(Post, :count).by(1)
+      expect(response).to redirect_to post_path(Post.last)
     end
   end
 end

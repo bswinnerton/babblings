@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'paperclip/matchers'
+#require 'capybara/poltergeist'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -39,4 +41,27 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Paperclip shoulda matchers
+  config.include Paperclip::Shoulda::Matchers
+
+  # Poltergeist Capybara driver
+  #Capybara.register_driver :poltergeist_debug do |app|
+  #  Capybara::Poltergeist::Driver.new(app, inspector: true)
+  #end
+  #Capybara.javascript_driver = :poltergeist_debug
+
+  # Database cleaner
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

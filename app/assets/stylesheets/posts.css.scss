@@ -2,8 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.img-thumbnail {
+.image-thumbnail, .youtube-thumbnail, .vimeo-thumbnail, .spotify-thumbnail, .soundcloud-thumbnail {
   padding: 10px 10px 40px 10px;
+  line-height: 1.42857;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
 }
 
 .post-box {
@@ -19,10 +28,7 @@
   -moz-border-radius: 15px;
   border-radius: 15px;
   input {
-    font-size: 28px;
     text-align: center;
     width: 100%;
-    margin-top: 3px;
-    margin-bottom: 3px;
   }
 }

@@ -1,5 +1,5 @@
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2 col-md-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
-    <%= link_to image_tag(@post.content, class: 'post img-responsive img-thumbnail'), @post.original_path, class: 'post-link' %>
+    <%= render_html(@post) %>
   </div>
 </div>

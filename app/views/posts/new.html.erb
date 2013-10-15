@@ -1,8 +1,21 @@
 <div class="new-post col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-<%= form_for(@post) do |f| %>
+<%= form_for @post do |f| %>
   <% @post.errors.full_messages.each do |error| %>
     <div id="error"><%= error %></div>
   <% end %>
-  <%= f.text_field :content, value: "enter your text, image, or video", onfocus: "if (this.value == 'enter your text, image, or video') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'enter your text, image, or video';}" %>
+  <div class="input-group">
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Type: <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <% Post::SUPPORTED_FORMATS.each do |format| %>
+          <li><%= link_to format.humanize, '#' %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= f.text_field :content, class: 'form-control' %>
+    <span class="input-group-btn">
+      <%= f.submit 'Submit', class: 'btn btn-default' %>
+    </span>
+  </div>
 <% end %>
 </div>

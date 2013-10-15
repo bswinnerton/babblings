@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :user_id
       t.string :format
       t.text :content
-      t.text :original_path
       t.integer :width
       t.integer :height
       t.integer :width_thumbnail

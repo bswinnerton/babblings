@@ -1,29 +1,96 @@
 require 'spec_helper'
 
-describe "posts" do
-  before :each do
-    @post1 = FactoryGirl.create(:post)
-    @post2 = FactoryGirl.create(:post)
+describe "Posts ->" do
+  context "create:" do
+    it 'shows the new post page' do
+      visit new_post_path
+      expect(page).to have_field('post_content')
+    end
+
+    it 'creates a new post and redirects to the show page' do #, js: true do
+      new_youtube_post = FactoryGirl.attributes_for(:post, :youtube)
+      new_youtube_post_url = new_youtube_post[:content].match(/(#{Post::SUPPORTED_FORMATS.join("|")}):(.*)$/).captures.second # Borrowed from Post::determine_format
+      visit new_post_path
+      fill_in 'post_content', with: new_youtube_post[:content]
+      click_button 'Submit'
+      #find(:xpath, '//input[@id=\'post_content\']').native.send_keys(:return)
+      #page.driver.execute_script("$('input#post_content').trigger($.Event('keydown', { keyCode: 13 }));")
+      expect(page).to have_xpath "//iframe[contains(@src, '#{new_youtube_post_url}')]"
+    end
   end
 
-  it "displays all of the posts" do
-    visit root_path
-    expect(page).to have_css 'img', @post1.content
-    expect(page).to have_css 'img', @post2.content
+  context "read:" do
+    it 'displays all of the posts' do
+      image_post = FactoryGirl.create(:post, :image)
+      youtube_post = FactoryGirl.create(:post, :youtube)
+      vimeo_post = FactoryGirl.create(:post, :vimeo)
+      #quote_post = FactoryGirl.create(:post, :quote)
+      spotify_post = FactoryGirl.create(:post, :spotify)
+      #soundcloud_post = FactoryGirl.create(:post, :soundcloud)
+      #definition_post = FactoryGirl.create(:post, :definition)
+      visit root_path
+      expect(page).to have_xpath "//img[contains(@src, '#{image_post.image.url(:thumbnail)}')]"
+      expect(page).to have_xpath "//iframe[contains(@src, '#{youtube_post.content}')]"
+      expect(page).to have_xpath "//iframe[contains(@src, '#{vimeo_post.content}')]"
+      #expect(page).to have_content quote_post.content
+      expect(page).to have_xpath "//iframe[contains(@src, '#{spotify_post.content}')]"
+      #expect(page).to have_content soundcloud_post.content
+      #expect(page).to have_content definition_post.content
+    end
+
+    it 'displays an individual image page' do
+      image_post = FactoryGirl.create(:post, :image)
+      visit post_path(image_post)
+      expect(page).to have_xpath "//img[contains(@src, '#{image_post.image.url(:large)}')]"
+    end
+
+    it 'displays an individual youtube page' do
+      youtube_post = FactoryGirl.create(:post, :youtube)
+      visit post_path(youtube_post)
+      expect(page).to have_xpath "//iframe[contains(@src, '#{youtube_post.content}')]"
+    end
+
+    it 'displays an individual vimeo page' do
+      vimeo_post = FactoryGirl.create(:post, :vimeo)
+      visit post_path(vimeo_post)
+      expect(page).to have_xpath "//iframe[contains(@src, '#{vimeo_post.content}')]"
+    end
+
+    it 'displays an individual quote page' do
+      quote_post = FactoryGirl.create(:post, :quote)
+      visit post_path(quote_post)
+      pending
+    end
+
+    it 'displays an individual spotify page' do
+      spotify_post = FactoryGirl.create(:post, :spotify)
+      visit post_path(spotify_post)
+      expect(page).to have_xpath "//iframe[contains(@src, '#{spotify_post.content}')]"
+    end
+
+    it 'displays an individual soundcloud page' do
+      soundcloud_post = FactoryGirl.create(:post, :soundcloud)
+      visit post_path(soundcloud_post)
+      pending
+    end
+
+    it 'displays an individual definition page' do
+      definition_post = FactoryGirl.create(:post, :definition)
+      visit post_path(definition_post)
+      pending
+    end
+
+    it 'links to original content on individual image page' do
+      image_post = FactoryGirl.create(:post, :image)
+      visit post_path(image_post)
+      expect(page).to have_selector "a[href='#{image_post.content}']"
+    end
   end
 
-  it "displays individual posts" do
-    visit post_path(@post1)
-    expect(page).to have_css 'img', @post1.content
+
+  context "update:" do
   end
 
-  it "links to original content on show page" do
-    visit post_path(@post1)
-    expect(page).to have_selector "a[href='#{@post1.original_path}']"
-  end
-
-  it "shows the new post page" do
-    visit new_post_path
-    expect(page).to have_field('post_content', with: 'enter your text, image, or video')
+  context "destroy:" do
   end
 end

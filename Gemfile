@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
+gem 'paperclip', '~> 3.0'
 
 group :production do
   gem 'pg'
@@ -38,6 +39,9 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
+  #gem 'poltergeist'
+  gem 'database_cleaner', '< 1.1.0'
 end
 
 group :doc do
