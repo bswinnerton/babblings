@@ -29,10 +29,9 @@ FactoryGirl.define do
       content 'definition:antidisestablishmentarianism'
     end
 
-    width 500
-    height 501
-    trait :valid do
-      is_deleted false
+    trait :invalid do
+      format ''
+      content ''
     end
     trait :deleted do
       is_deleted true

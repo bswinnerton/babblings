@@ -61,9 +61,14 @@ describe PostsController do
   end
 
   describe 'POST #create' do
-    it "create post and redirect to it" do
+    it "creates post and redirect to it" do
       expect { post :create, post: FactoryGirl.attributes_for(:post, :vimeo) }.to change(Post, :count).by(1)
       expect(response).to redirect_to post_path(Post.last)
+    end
+
+    it "redirects to the 'new' page if no data is given" do
+      expect { post :create, post: FactoryGirl.attributes_for(:post, :vimeo).merge(content: '') }.to_not change(Post, :count)
+      expect(response).to redirect_to new_post_path
     end
   end
 end

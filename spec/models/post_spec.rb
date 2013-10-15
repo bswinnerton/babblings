@@ -10,4 +10,8 @@ describe Post do
     post1 = FactoryGirl.create(:post, :vimeo)
     expect(post1.content) == Post.last.content
   end
+
+  it "validates presence of content" do
+    expect( FactoryGirl.build(:post, :vimeo, content: '') ).to_not be_valid
+  end
 end

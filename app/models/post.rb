@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   before_save :determine_format, :pull_image
   scope :recent, -> { order(created_at: :desc) }
   has_attached_file :image, styles: { thumbnail: '350x', large: '1000x' }
+  validates_presence_of :content
 
   SUPPORTED_FORMATS = %w(image youtube vimeo quote spotify soundcloud definition)
 
