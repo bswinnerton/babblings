@@ -23,12 +23,14 @@
 .new-post {
   margin-top: 20%;
   margin-bottom: 25%;
-  background: #FFFFFF;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
   input {
     text-align: center;
-    width: 100%;
+  }
+  #post_content {
+    font-size: 20px;
+    height: auto;
+  }
+  .btn {
+    font-size: 20px;
   }
 }
