@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Babblings::Application.config.secret_key_base = 'a74fc40fd6d4344ce963fc326b58370cf13df336dff7b0121ef37b1625e3009cb2726e2d35e5e34dd2bc308eb174a71f783aeb606715b1d3cbb1ed3a9f8be988'
+Babblings::Application.config.secret_key_base = ENV['BABBLINGS_SECRET_TOKEN']
