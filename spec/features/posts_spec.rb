@@ -17,6 +17,13 @@ describe "Posts ->" do
       #page.driver.execute_script("$('input#post_content').trigger($.Event('keydown', { keyCode: 13 }));")
       expect(page).to have_xpath "//iframe[contains(@src, '#{new_youtube_post_url}')]"
     end
+
+    it 'does not allow the user to submit a blank post' do
+      visit new_post_path
+      fill_in 'post_content', with: ''
+      click_button 'Submit'
+      expect(page).to have_content 'Content can\'t be blank'
+    end
   end
 
   context "read:" do

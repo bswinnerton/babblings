@@ -68,7 +68,7 @@ describe PostsController do
 
     it "redirects to the 'new' page if no data is given" do
       expect { post :create, post: FactoryGirl.attributes_for(:post, :vimeo).merge(content: '') }.to_not change(Post, :count)
-      expect(response).to redirect_to new_post_path
+      expect(response).to render_template :new
     end
   end
 end
