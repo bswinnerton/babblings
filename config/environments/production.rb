@@ -77,4 +77,14 @@ Babblings::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Amazon S3
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['BABBLINGS_S3_BUCKET'],
+      access_key_id: ENV['BABBLINGS_AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['BABBLINGS_AWS_SECRET_ACCESS_KEY']
+    }
+  }
 end

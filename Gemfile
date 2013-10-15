@@ -15,6 +15,7 @@ group :production do
   gem 'unicorn'
   gem 'newrelic_rpm'
   gem 'rails_12factor'
+  gem 'aws-sdk'
 end
 
 group :development, :test do
