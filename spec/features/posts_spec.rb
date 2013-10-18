@@ -101,10 +101,6 @@ describe "Posts ->" do
       expect(page).to have_field('post_content')
     end
 
-    it 'displays the current format and content' do
-      pending
-    end
-
     it 'edits an existing post and redirects to the show page', js: true do
       new_vimeo_post = FactoryGirl.attributes_for(:post, :vimeo)
       existing_youtube_post = FactoryGirl.create(:post, :youtube)
@@ -116,10 +112,11 @@ describe "Posts ->" do
       expect(page).to have_xpath "//iframe[contains(@src, '#{new_vimeo_post[:content]}')]"
     end
 
-    it 'shows the appropriate format when editing' do
+    it 'shows the appropriate format and content when editing' do
       definition_post = FactoryGirl.create(:post, :definition)
       visit edit_post_path(definition_post)
       expect(page).to have_xpath "//button[contains(text(), '#{definition_post.format.humanize}')]"
+      expect(page).to have_xpath "//input[contains(@value, '#{definition_post.content}')]"
     end
 
     it 'does not allow the user to submit a blank post' do
