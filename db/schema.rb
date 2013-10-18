@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20131008155132) do
     t.integer  "user_id"
     t.string   "format"
     t.text     "content"
+    t.text     "original_path"
     t.integer  "width"
     t.integer  "height"
     t.integer  "width_thumbnail"
