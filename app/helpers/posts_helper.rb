@@ -12,8 +12,7 @@ module PostsHelper
     when 'vimeo'
       "<div class='vimeo-thumbnail'><iframe src='http://player.vimeo.com/video/#{post.content}?portrait=0&byline=0&title=0' width='330' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>".html_safe
     when 'quote'
-      #TODO
-      "<div class='quote-thumbnail'>\"#{post.content}\"</div>".html_safe
+      "<div class='quote-thumbnail'><div class='notepad'>\"#{post.content}\"</div></div>".html_safe
     when 'spotify'
       "<div class='spotify-thumbnail'><iframe src='https://embed.spotify.com/?uri=spotify:track:#{post.content}&amp;view=coverart' width='330' height='80' frameborder='0' allowtransparency='true'></iframe></div>".html_safe
     when 'soundcloud'
