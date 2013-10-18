@@ -95,6 +95,40 @@ describe "Posts ->" do
 
 
   context "update:" do
+    it 'shows the edit post page' do
+      quote_post = FactoryGirl.create(:post, :quote)
+      visit edit_post_path(quote_post)
+      expect(page).to have_field('post_content')
+    end
+
+    it 'displays the current format and content' do
+      pending
+    end
+
+    it 'edits an existing post and redirects to the show page', js: true do
+      new_vimeo_post = FactoryGirl.attributes_for(:post, :vimeo)
+      existing_youtube_post = FactoryGirl.create(:post, :youtube)
+      visit edit_post_path(existing_youtube_post)
+      click_button 'format_button'
+      click_link new_vimeo_post[:format]
+      fill_in 'post_content', with: new_vimeo_post[:content]
+      click_button 'Submit'
+      expect(page).to have_xpath "//iframe[contains(@src, '#{new_vimeo_post[:content]}')]"
+    end
+
+    it 'shows the appropriate format when editing' do
+      definition_post = FactoryGirl.create(:post, :definition)
+      visit edit_post_path(definition_post)
+      expect(page).to have_xpath "//button[contains(text(), '#{definition_post.format.humanize}')]"
+    end
+
+    it 'does not allow the user to submit a blank post' do
+      existing_soundcloud_post = FactoryGirl.create(:post, :soundcloud)
+      visit edit_post_path(existing_soundcloud_post)
+      fill_in 'post_content', with: ''
+      click_button 'Submit'
+      expect(page).to have_content 'Content can\'t be blank'
+    end
   end
 
   context "destroy:" do
