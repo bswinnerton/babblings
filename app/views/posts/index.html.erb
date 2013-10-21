@@ -1,7 +1,5 @@
 <div class="masonry">
   <% @posts.each do |post| %>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4">
-      <%= render_html(post) %>
-    </div>
+    <%= render_html post %>
   <% end %>
 </div>

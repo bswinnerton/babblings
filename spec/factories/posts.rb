@@ -16,7 +16,7 @@ FactoryGirl.define do
     end
     trait :quote do
       format 'quote'
-      content 'You are on a rock floating through space'
+      sequence(:content) { |n| "#{n} bottles of beer on the wall" }
     end
     trait :spotify do
       format 'spotify'

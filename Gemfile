@@ -21,10 +21,10 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
-  gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman'
@@ -38,8 +38,8 @@ group :test do
   gem 'simplecov', require: false
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'selenium-webdriver'
   #gem 'poltergeist'
   gem 'database_cleaner', '< 1.1.0'

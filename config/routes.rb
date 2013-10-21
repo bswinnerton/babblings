@@ -1,7 +1,9 @@
 Babblings::Application.routes.draw do
   root 'posts#index'
-  get '/about' => 'static#about'
-  resources :posts
+  get 'about' => 'static#about'
+  resources :posts do
+    get 'page/:page' => 'posts#page', on: :collection, as: :page
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

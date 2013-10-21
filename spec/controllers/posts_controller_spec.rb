@@ -42,6 +42,28 @@ describe PostsController do
     end
   end
 
+  describe 'GET #page' do
+    before :each do
+      @quote_posts = 25.times.map { FactoryGirl.create(:post, :quote) }.reverse
+    end
+
+    it 'responds successfully with an HTTP 200 status code' do
+      get :page, page: '1'
+      expect(response).to be_success
+      expect(response.status).to eq 200
+    end
+
+    it 'renders the show template' do
+      get :page, page: '1'
+      expect(response).to render_template :page
+    end
+
+    it 'loads the appropriate posts into @posts' do
+      get :page, page: '1'
+      expect(assigns(:posts)).to eq(@quote_posts.slice(0..Post::MAX_PER_PAGE - 1))
+    end
+  end
+
   describe 'GET #new' do
     it "responds successfully with an HTTP 200 status code" do
       get :new

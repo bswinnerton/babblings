@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.recent
+    @posts = Post.limited.recent
   end
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def page
+    @posts = Post.limited.offset((params[:page].to_i - 1) * Post::MAX_PER_PAGE).recent
+    render layout: false
   end
 
   def new
