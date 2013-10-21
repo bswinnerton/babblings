@@ -15,13 +15,16 @@ $(document).ready(function(){
   $(window).scroll(function() {
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 500) {
       if (currentXHR) { return; }
+      currentPage++;
       currentXHR = $.ajax({
         type: 'GET',
-          url: 'posts/page/' + currentPage++,
+          url: 'posts/page/' + currentPage,
           data: '',
-          success: function(results){
+          success: function(results) {
+            var $results = jQuery(results).filter('div');
+            $container.append($results);
             $container.imagesLoaded(function() {
-              $container.append(results).masonry('appended', results, 'reloadItems');
+              $container.masonry('appended', $results, 'layout');
             });
           },
           complete: function() {
