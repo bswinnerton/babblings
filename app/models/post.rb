@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 #  end
 
   def pull_image
-    if self.created_at < Time.new('2013-10-18 00:00:00 -0400')
+    if self.created_at.present? && self.created_at < Time.new('2013-10-18 00:00:00 -0400')
       self.image = URI.parse(self.original_path) if self.format == 'image'
     else
       self.image = URI.parse(self.content) if self.format == 'image'
