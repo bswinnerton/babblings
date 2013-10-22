@@ -1,8 +1,9 @@
 class Post < ActiveRecord::Base
   SUPPORTED_FORMATS = %w(image youtube vimeo quote spotify soundcloud definition)
   MAX_PER_PAGE = 15
+  WIDTHS = { small: 180, medium: 264, large: 350 }
 
-  before_save :pull_image
+  before_save :pull_image, :save_dimensions
   scope :recent, -> { order(created_at: :desc) }
   scope :limited, -> { limit(Post::MAX_PER_PAGE) }
   validates_presence_of :format, :content
@@ -16,10 +17,21 @@ class Post < ActiveRecord::Base
 #  end
 
   def pull_image
-    if self.created_at.present? && self.created_at < Time.new('2013-10-18 00:00:00 -0400')
-      self.image = URI.parse(self.original_path) if self.format == 'image'
-    else
-      self.image = URI.parse(self.content) if self.format == 'image'
+    if self.format == 'image'
+      if self.created_at.present? && self.created_at < Time.new('2013-10-18 00:00:00 -0400')
+        self.image = URI.parse(self.original_path)
+      else
+        self.image = URI.parse(self.content)
+      end
+    end
+  end
+
+  def save_dimensions
+    if self.format == 'image'
+      dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
+      self.width = dimensions.width
+      self.height = dimensions.height
+      self.ratio = dimensions.height / dimensions.width
     end
   end
 end

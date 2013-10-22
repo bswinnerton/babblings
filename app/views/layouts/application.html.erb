@@ -11,6 +11,16 @@
     <meta property="og:site_name" content="babblings." />
     <meta property="og:description" content="babblings of the internet" />
     <%= csrf_meta_tags %>
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+      jQuery.ajax({
+          url: "/set_browser_dimensions",
+          type: 'post',
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+          data: 'width=' + $(window).width() + '&height=' + $(window).height(),
+          dataType: 'script'
+      });
+    </script>
     <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
     <link href="http://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css" />
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -50,7 +60,6 @@
       <hr>
     </footer>
 
-    <script src="//code.jquery.com/jquery.js"></script>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>
