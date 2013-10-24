@@ -2,10 +2,12 @@ $(document).ready(function(){
 
   // Masonry Layout
   var $container = $('.masonry');
-  $container.masonry({
-    itemSelector        : '.post-box',
-    columnWidth         : '.post-box',
-    transitionDuration  : 0
+  $container.imagesLoaded( function() {
+    $container.masonry({
+      itemSelector        : '.post-box',
+      columnWidth         : '.post-box',
+      transitionDuration  : 0
+    });
   });
 
   // Endless Scroll
@@ -20,7 +22,10 @@ $(document).ready(function(){
           data: '',
           success: function(results) {
             var $results = jQuery(results).filter('div');
-            $container.append($results).masonry('appended', $results, 'layout');
+            $container.append($results)
+            $container.imagesLoaded( function() {
+              $container.masonry('appended', $results, 'layout');
+            });
           },
           complete: function() {
             currentXHR = null;

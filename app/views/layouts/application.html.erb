@@ -12,6 +12,7 @@
     <meta property="og:description" content="babblings of the internet" />
     <%= csrf_meta_tags %>
     <script src="//code.jquery.com/jquery.js"></script>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <script type="text/javascript">
       jQuery.ajax({
           url: "/set_browser_dimensions",
@@ -60,6 +61,5 @@
       <hr>
     </footer>
 
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>

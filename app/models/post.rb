@@ -1,14 +1,14 @@
 class Post < ActiveRecord::Base
   SUPPORTED_FORMATS = %w(image youtube vimeo quote spotify soundcloud definition)
   MAX_PER_PAGE = 15
-  WIDTHS = { small: 180, medium: 264, large: 350 }
+  WIDTHS = { small: 180, medium: 264, large: 350, full: 1000 }
 
   before_save :pull_image, :save_dimensions
   scope :recent, -> { order(created_at: :desc) }
   scope :limited, -> { limit(Post::MAX_PER_PAGE) }
   validates_presence_of :format, :content
 
-  has_attached_file :image, styles: { thumbnail: '350x', large: '1000x' }
+  has_attached_file :image, styles: { thumbnail: "#{Post::WIDTHS[:large]}x", large: "#{Post::WIDTHS[:full]}x" }
 
 #  def determine_format
 #    supported_formats_in_regex = SUPPORTED_FORMATS.join("|")
