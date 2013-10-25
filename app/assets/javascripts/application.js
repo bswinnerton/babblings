@@ -16,5 +16,4 @@
 //= require bootstrap
 //= require imagesloaded
 //= require masonry
-//= require posts
 //= require_tree .
