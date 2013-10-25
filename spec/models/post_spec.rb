@@ -20,6 +20,8 @@ describe Post do
   end
 
   it "displays posts in the order that they were created" do
-    pending
+    FactoryGirl.create(:post, :youtube)
+    FactoryGirl.create(:post, :soundcloud)
+    expect(Post.all.first.created_at).to be < Post.all.last.created_at
   end
 end
