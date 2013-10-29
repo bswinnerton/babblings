@@ -1,56 +1,37 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author, :content, :post_type, :is_deleted, :is_hidden
+  SUPPORTED_FORMATS = %w(image youtube vimeo quote spotify soundcloud definition)
+  MAX_PER_PAGE = 15
+  WIDTHS = { small: 180, medium: 264, large: 350, full: 1000 }
 
-  default_scope where(:is_deleted => false)
-  scope :active, where(:is_hidden => false)
-  scope :recent, order('created_at DESC')
-  scope :limited, limit(Rails.configuration.items_per_page)
-  
-  validates :content, :presence => true
-  before_save :set_values
-  has_attached_file :image, 
-                    styles: { thumbnail: "280x", large: "960x" }
+  before_save :pull_image, :save_dimensions
+  scope :recent, -> { order(created_at: :desc) }
+  scope :limited, -> { limit(Post::MAX_PER_PAGE) }
+  validates_presence_of :format, :content
 
-  def set_values
-    # Image
-    if content =~ /(\.jpg|\.JPG|\.png|\.PNG|\.bmp|\.BMP|\.gif|\.GIF)$/
-      self.post_type = 'image'
-      self.original_path = self.content
-      self.image = URI.parse(content)
-      set_image_dimensions
-    # YouTube
-    elsif content =~ /(#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be\/)[^&\n]+#)/
-      self.post_type = 'youtube'
-      self.original_path = self.content
-      self.content = $1
-      self.width = 280
-      self.height = 158
-    # Vimeo
-    elsif content =~ /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/
-      self.post_type = 'vimeo'
-      self.original_path = self.content
-      self.content = $5
-      self.width = 280
-      self.height = 158
-    # Spotify
-    elsif content =~ /spotify:track:([a-zA-Z0-9]{22})/
-      self.post_type = 'spotify'
-      self.original_path = self.content
-      self.content = $1
-    # Text
-    else
-      self.post_type = 'text'
+  has_attached_file :image, styles: { thumbnail: "#{Post::WIDTHS[:large]}x", large: "#{Post::WIDTHS[:full]}x" }
+
+#  def determine_format
+#    supported_formats_in_regex = SUPPORTED_FORMATS.join("|")
+#    self.format = self.content.match(/(#{supported_formats_in_regex}):(.*)$/).captures.first
+#    self.content = self.content.match(/(#{supported_formats_in_regex}):(.*)$/).captures.second
+#  end
+
+  def pull_image
+    if self.format == 'image'
+      if self.created_at.present? && self.created_at < Time.new('2013-10-18 00:00:00 -0400')
+        self.image = URI.parse(self.original_path)
+      else
+        self.image = URI.parse(self.content)
+      end
     end
   end
 
-  def set_image_dimensions
-    dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
-    self.width = dimensions.width
-    self.height = dimensions.height
-
-    ratio = dimensions.height / dimensions.width
-    self.width_thumbnail = "280"
-    self.height_thumbnail = ratio * self.width_thumbnail
+  def save_dimensions
+    if self.format == 'image'
+      dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
+      self.width = dimensions.width
+      self.height = dimensions.height
+      self.ratio = dimensions.height / dimensions.width
+    end
   end
-
 end

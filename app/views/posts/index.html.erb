@@ -1,11 +1,5 @@
-<div id="container">
-<% @posts.each do |post| %>
-  <% if post.post_type == "text" %>
-    <div class="contentBox">
-  <% else %>
-    <div class="contentBox noText">
+<div class="masonry">
+  <% @posts.each do |post| %>
+    <%= show_html post %>
   <% end %>
-      <%= format_type(post).html_safe %>
-    </div>
-<% end %>
 </div>

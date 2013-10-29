@@ -1,50 +1,47 @@
 class PostsController < ApplicationController
-
   def index
-    @posts = Post.active.limited.recent
+    @posts = Post.limited.recent
   end
 
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def page
-    @posts = Post.active.limited.offset(params[:page].to_i * Rails.configuration.items_per_page).recent
-    render :layout => false
+    @posts = Post.limited.offset((params[:page].to_i - 1) * Post::MAX_PER_PAGE).recent
+    render layout: false
   end
-  
+
   def new
     @post = Post.new
   end
 
   def create
-    @post = Post.new(params[:post])
-
+    @post = Post.new(post_params)
     if @post.save
-      redirect_to @post, notice: 'It worked!'
+      redirect_to @post
     else
-      render action: :new
+      render :new
     end
   end
 
-  def delete
-    @post = Post.update(params[:id], :is_deleted => true)
-    render :action => :success if @post.save
+  def edit
+    @post = Post.find(params[:id])
   end
 
-  def undelete
-    @post = Post.unscoped.update(params[:id], :is_deleted => false)
-    render :action => :success if @post.save
+  def update
+    @post = Post.find(params[:id])
+
+    if @post.update_attributes(post_params)
+      redirect_to @post
+    else
+      render :edit
+    end
   end
 
-  def hide
-    @post = Post.update(params[:id], :is_hidden => true)
-    render :action => :success if @post.save
-  end
+private
 
-  def unhide
-    @post = Post.update(params[:id], :is_hidden => false)
-    render :action => :success if @post.save
+  def post_params
+    params.require(:post).permit(:format, :content)
   end
-
 end

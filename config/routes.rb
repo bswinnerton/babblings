@@ -1,12 +1,8 @@
 Babblings::Application.routes.draw do
-  root :to => 'posts#index'
+  root 'posts#index'
+  get 'about' => 'static#about'
+  post 'set_browser_dimensions' => 'house_cleaning#set_browser_dimensions'
   resources :posts do
-    member do
-      put   'undelete'    => 'posts#undestroy'
-      put   'hide'        => 'posts#hide'
-      put   'unhide'      => 'posts#unhide'
-    end
+    get 'page/:page' => 'posts#page', on: :collection, as: :page
   end
-  match '/posts/page/:page' => 'posts#page'
-  match '/help' => 'help#index'
 end

@@ -1,7 +1,9 @@
 language: ruby
 rvm:
-  - 1.9.3
-before_script:
-  - rake db:migrate
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
+  - 2.0.0
+env:
+  global:
+    secure: X3FhXKjXJYC1DP+HlapaZgeQkupDFuMJmcldHuuGNQe7s3QjoNCyIB3cLfT8aHvvmeoSQ9JSFT8ucCoUnn4DoBb3y7FRsut4QWxjpjY3DWFmmOvbSVyw4AQbHT+WrN9/dDAGVrf+0gcNkK5GM4YnzGpfitavmL8zj/EpJ2d4uhM=
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"

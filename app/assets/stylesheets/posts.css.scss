@@ -1,3 +1,75 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.image-thumbnail, .youtube-thumbnail, .vimeo-thumbnail, .quote-thumbnail, .spotify-thumbnail, .soundcloud-thumbnail {
+  padding: 10px 10px 40px 10px;
+  line-height: 1.42857;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+.quote-thumbnail {
+  .notepad {
+    font: normal 12px/1.5 "Lucida Grande", arial, sans-serif;
+    margin: 0 auto 0px;
+    padding: 6px 5px 4px 42px;
+    position: relative;
+    color: #444;
+    line-height: 20px;
+    border: 1px solid #F8F8F8;
+
+    background: #fff;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+    background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+
+    -webkit-background-size: 100% 20px;
+    -moz-background-size: 100% 20px;
+    -ms-background-size: 100% 20px;
+    -o-background-size: 100% 20px;
+    background-size: 100% 20px;
+  }
+  .notepad::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    top: 0;
+    left: 30px;
+    bottom: 0;
+    border: 1px solid;
+    border-color: transparent #efe4e4;
+  }
+}
+
+.post-box {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.new-post {
+  margin-top: 20%;
+  margin-bottom: 25%;
+  input {
+    text-align: center;
+    height: 44px;
+  }
+  #post_content {
+    font-size: 20px;
+    height: 44px;
+  }
+  .btn {
+    font-size: 20px;
+    height: 44px;
+    font-weight: 200;
+  }
+}
