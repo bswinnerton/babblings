@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'simplecov', require: false
+  gem 'coveralls', require: false
   gem 'launchy'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
