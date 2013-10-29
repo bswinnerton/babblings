@@ -1,6 +1,7 @@
 #Babblings
 [![Build Status](https://travis-ci.org/bswinnerton/babblings.png)](https://travis-ci.org/bswinnerton/babblings)
-[![Coverage Status](https://coveralls.io/repos/bswinnerton/babblings/badge.png?branch=rails4redesign)](https://coveralls.io/r/bswinnerton/babblings?branch=rails4redesign)
+[![Coverage Status](https://coveralls.io/repos/bswinnerton/babblings/badge.png?branch=develop)](https://coveralls.io/r/bswinnerton/babblings?branch=develop)
+[![Code Climate](https://codeclimate.com/github/bswinnerton/babblings.png)](https://codeclimate.com/github/bswinnerton/babblings)
 [![Dependency Status](https://gemnasium.com/bswinnerton/babblings.png)](https://gemnasium.com/bswinnerton/babblings)
 
 Babblings is a place where you can share the content that you enjoy on the internet with others. Wait? Isn't that what Facebook, Twitter, Tumblr, Pinterest do? Sigh, yes - it is.
@@ -22,7 +23,7 @@ apt-get install postgres # if you're on a debian/ubuntu box
 bundle install
 rake db:migrate
 rake db:seed # optional to see sample data
-export BABBLINGS_SECRET_KEY=$(rake secret)
+export BABBLINGS_SECRET_TOKEN=$(rake secret)
 rails s
 ```
 And sit in wonder of the amazement of your babblings.
