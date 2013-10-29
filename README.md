@@ -12,7 +12,7 @@ So why choose babblings? Well, because it's open source and because I'm cooler t
 * Paperclip
 * Amazon S3
 
-To get this application up and running, do the following:
+###How to get the application started
 
 ```
 git clone https://github.com/bswinnerton/babblings.git
@@ -21,6 +21,19 @@ brew install postgres # if you're on a mac
 apt-get install postgres # if you're on a debian/ubuntu box
 bundle install
 rake db:migrate
-rake db:seed
+rake db:seed # optional to see sample data
+export BABBLINGS_SECRET_KEY=$(rake secret)
+rails s
 ```
 And sit in wonder of the amazement of your babblings.
+
+### Configuring for Amazon S3
+There are a few environment variables that you'll want to set if you plan on using this application in production on something like heroku. They are as follows:
+
+```
+BABBLINGS_AWS_ACCESS_KEY_ID
+BABBLINGS_AWS_SECRET_ACCESS_KEY
+BABBLINGS_S3_BUCKET
+```
+
+You'll want to get these variables from when you create your Amazon S3 bucket, detailed [here](https://devcenter.heroku.com/articles/s3).
