@@ -1,6 +1,6 @@
 #Babblings
 [![Build Status](https://travis-ci.org/bswinnerton/babblings.png)](https://travis-ci.org/bswinnerton/babblings)
-[![Coverage Status](https://coveralls.io/repos/bswinnerton/babblings/badge.png)](https://coveralls.io/r/bswinnerton/babblings)
+[![Coverage Status](https://coveralls.io/repos/bswinnerton/babblings/badge.png?branch=rails4redesign)](https://coveralls.io/r/bswinnerton/babblings?branch=rails4redesign)
 [![Dependency Status](https://gemnasium.com/bswinnerton/babblings.png)](https://gemnasium.com/bswinnerton/babblings)
 
 Babblings is a place where you can share the content that you enjoy on the internet with others. Wait? Isn't that what Facebook, Twitter, Tumblr, Pinterest do? Sigh, yes - it is.
