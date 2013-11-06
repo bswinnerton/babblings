@@ -1,6 +1,6 @@
 #Babblings
 [![Build Status](https://travis-ci.org/bswinnerton/babblings.png)](https://travis-ci.org/bswinnerton/babblings)
-[![Coverage Status](https://coveralls.io/repos/bswinnerton/babblings/badge.png?branch=develop)](https://coveralls.io/r/bswinnerton/babblings?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/bswinnerton/babblings/badge.png)](https://coveralls.io/r/bswinnerton/babblings)
 [![Code Climate](https://codeclimate.com/github/bswinnerton/babblings.png)](https://codeclimate.com/github/bswinnerton/babblings)
 [![Dependency Status](https://gemnasium.com/bswinnerton/babblings.png)](https://gemnasium.com/bswinnerton/babblings)
 
