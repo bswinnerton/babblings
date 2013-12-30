@@ -1,12 +1,12 @@
 ruby '2.1.0'
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.1'
-gem 'sass-rails', '~> 4.0.0'
+gem 'rails', '4.0.2'
+gem 'sass-rails', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 3.0'
@@ -22,7 +22,8 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'pry'
-  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -39,8 +40,6 @@ group :test do
   gem 'simplecov', require: false
   gem 'coveralls', require: false
   gem 'launchy'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
   #gem 'poltergeist'
