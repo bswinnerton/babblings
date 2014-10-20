@@ -34,7 +34,7 @@ module PostsHelper
     case post.format
     when 'image'
       if params[:action] == 'index' or params[:action] == 'page'
-        "<div>#{link_to image_tag(post.image.url(:thumbnail), class: 'img-responsive image-thumbnail', width: width, height: height), post }</div>"
+        "<div>#{link_to image_tag(post.image.url(:thumbnail), class: 'img-responsive image-thumbnail', width: width, height: height, style: "height: #{height}px; width: #{width}px;"), post }</div>"
       elsif params[:action] == 'show'
         "<div>#{link_to image_tag(post.image.url(:large), class: 'img-responsive image-thumbnail'), post.content, class: 'post-link'}"
       end

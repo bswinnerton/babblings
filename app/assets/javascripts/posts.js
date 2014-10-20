@@ -22,10 +22,8 @@ $(document).ready(function(){
           data: '',
           success: function(results) {
             var $results = jQuery(results).filter('div');
-            $container.append($results)
-            $container.imagesLoaded( function() {
-              $container.masonry('appended', $results, 'layout');
-            });
+            $container.append($results);
+            $container.masonry( 'appended', $results );
           },
           complete: function() {
             currentXHR = null;
