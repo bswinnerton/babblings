@@ -1,8 +1,15 @@
-Babblings::Application.routes.draw do
+Rails.application.routes.draw do
   root 'posts#index'
-  get 'about' => 'static#about'
-  post 'set_browser_dimensions' => 'house_cleaning#set_browser_dimensions'
+
   resources :posts do
-    get 'page/:page' => 'posts#page', on: :collection, as: :page
+    collection do
+      get '/page/:page' => 'posts#page'
+    end
   end
+
+  resources :pictures, controller: :posts
+  resources :quotes, controller: :posts
+  resources :spotify, controller: :posts
+  resources :vimeo, controller: :posts
+  resources :youtube, controller: :posts
 end

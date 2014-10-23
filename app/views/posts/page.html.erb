@@ -1,3 +1,5 @@
 <% @posts.each do |post| %>
-  <%= show_html post %>
+  <div class="post">
+    <%= post.render(size: :thumbnail) %>
+  </div>
 <% end %>

@@ -1,0 +1,2 @@
+class Vimeo < Post
+end

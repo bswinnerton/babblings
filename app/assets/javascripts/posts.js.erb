@@ -1,0 +1,37 @@
+$(document).ready(function(){
+
+  // Masonry
+  if ( $( '.post' ).length > 1 ) {
+    var $container = $( '.posts' );
+    $container.masonry({
+      columnWidth: <%= Post::THUMBNAIL_WIDTH %>,
+      itemSelector: '.post',
+      gutter: 15,
+      isFitWidth: true,
+      transitionDuration: 0
+    });
+  }
+
+  // Endless Scroll
+  if ( $( '.post' ).length > 1 ) {
+    var currentPage = 1, currentXHR;
+
+    $( window ).scroll(function() {
+      if ( $( window ).scrollTop() + $( window ).height() > $( document ).height() - 500 ) {
+        if ( currentXHR ) { return; }
+        currentPage++;
+        currentXHR = $.ajax({
+          type: 'GET',
+          url: 'posts/page/' + currentPage,
+          complete: function() { currentXHR = null; },
+          success: function( results ) {
+            var $results = $( results ).filter( 'div' );
+            $container.append( $results );
+            $container.masonry( 'appended', $results );
+          }
+        });
+      }
+    });
+  }
+
+});

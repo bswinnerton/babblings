@@ -13,7 +13,8 @@ namespace :db do
 
   namespace :production do
     desc 'Clone production data to local database'
-    task clone_to_local: [:drop, :create, :environment] do
+    task clone_to_local: :environment do
+      task ARGV.last.to_sym # Without this line, a blank '--' is required in the arguments
       capture_backup(:production)
       pull_backup(:production)
     end

@@ -1,1 +1,18 @@
-<%= render 'form' %>
+<div class="post">
+  <% if @post.errors.any? %>
+    <div class="flash-message alert">
+      The form contains <%= pluralize @post.errors.count, 'error' %> below:
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @post do |f| %>
+    <%= f.select :type, Post.formats %>
+    <%= f.text_field :content %>
+    <%= f.submit %>
+  <% end %>
+</div>

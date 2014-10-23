@@ -1,15 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.limited.recent
+    @posts = Post.all.page(params[:page]).map(&:decorate)
   end
 
   def show
-    @post = Post.find(params[:id])
-  end
-
-  def page
-    @posts = Post.limited.offset((params[:page].to_i - 1) * Post::MAX_PER_PAGE).recent
-    render layout: false
+    @post = Post.find(params[:id]).decorate
   end
 
   def new
@@ -17,7 +12,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = post_format_from_params.new(post_params)
+
     if @post.save
       redirect_to @post
     else
@@ -25,23 +21,19 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
-
-  def update
-    @post = Post.find(params[:id])
-
-    if @post.update_attributes(post_params)
-      redirect_to @post
-    else
-      render :edit
-    end
+  def page
+    @posts = Post.all.page(params[:page]).map(&:decorate)
+    render layout: false
   end
 
 private
 
   def post_params
-    params.require(:post).permit(:format, :content)
+    params.require(:post).permit(:content)
+  end
+
+  def post_format_from_params
+    format = params[:post][:type]
+    format.constantize if Post.formats.include? params[:post][:type]
   end
 end

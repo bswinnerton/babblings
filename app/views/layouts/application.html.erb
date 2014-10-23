@@ -1,65 +1,23 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>babblings.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" content="Brooks Swinnerton, bswinnerton@gmail.com" />
-    <meta name="Description" content="babblings of the internet, all in one place." />
-    <meta property="og:title" content="babblings of the internet" />
-    <meta property="og:type" content="blog" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="babblings." />
-    <meta property="og:description" content="babblings of the internet" />
-    <%= csrf_meta_tags %>
-    <script src="//code.jquery.com/jquery.js"></script>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <script type="text/javascript">
-      jQuery.ajax({
-          url: "/set_browser_dimensions",
-          type: 'post',
-          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-          data: 'width=' + $(window).width() + '&height=' + $(window).height(),
-          dataType: 'script'
-      });
-    </script>
-    <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css" />
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= favicon_link_tag %>
-  </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <%= link_to 'babblings', root_path, class: 'navbar-brand' %>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "About", about_path %></li>
-            <!--
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-               <ul class="dropdown-menu">
-                 <li>Form here</li>
-               </ul>
-            </li>
-            -->
-          </ul>
-        </div>
-      </div>
-    </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>babblings</title>
+  <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://code.jquery.com/jquery-2.1.1.min.js', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+  <div class="logo">
+    <h1><%= link_to 'babblings', root_path, data: { no_turbolink: true } %></ha>
+  </div>
 
-    <footer>
-      <hr>
-    </footer>
+  <%= yield %>
 
-  </body>
+</body>
 </html>
