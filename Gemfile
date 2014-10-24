@@ -19,6 +19,7 @@ group :production, :staging do
   gem 'rails_12factor'
   gem 'rack-timeout'
   gem 'aws-sdk'
+  gem 'raygun4ruby'
 end
 
 group :development, :test do

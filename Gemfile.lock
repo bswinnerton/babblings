@@ -80,6 +80,9 @@ GEM
     faker (1.4.3)
       i18n (~> 0.5)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.3)
       activesupport (>= 3.0.0, < 5)
@@ -99,6 +102,7 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     paperclip (4.2.0)
@@ -144,6 +148,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    raygun4ruby (1.1.4)
+      httparty (~> 0.11)
+      json
+      rack
     rdoc (4.1.2)
       json (~> 1.4)
     request_store (1.1.0)
@@ -231,6 +239,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 4.1.6)
   rails_12factor
+  raygun4ruby
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
