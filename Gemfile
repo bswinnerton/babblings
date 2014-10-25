@@ -14,6 +14,7 @@ gem 'pry-rails'
 gem 'paperclip'
 gem 'kaminari'
 gem 'draper'
+gem 'paranoia'
 
 group :production, :staging do
   gem 'rails_12factor'

@@ -2,7 +2,8 @@ class Picture < Post
   has_attached_file :image,
     styles: { full: "#{FULL_WIDTH}", thumbnail: "#{THUMBNAIL_WIDTH}" },
     default_url: '/images/:style/missing.png',
-    convert_options: { full: '-quality 100' }
+    convert_options: { full: '-quality 100' },
+    preserve_files: 'true'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   before_create :fetch_image

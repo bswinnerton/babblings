@@ -110,6 +110,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paranoia (2.0.2)
+      activerecord (~> 4.0)
     pg (0.17.1)
     poltergeist (1.5.1)
       capybara (~> 2.1)
@@ -233,6 +235,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   paperclip
+  paranoia
   pg
   poltergeist
   pry-rails

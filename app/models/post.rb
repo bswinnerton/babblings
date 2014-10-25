@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   FULL_WIDTH = 930
   THUMBNAIL_WIDTH = 300
 
+  acts_as_paranoid
+
   def self.formats
     subclasses.map(&:name)
   end
