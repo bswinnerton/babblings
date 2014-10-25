@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.page(params[:page]).map(&:decorate)
+    @posts = Post.active.ordered.page(params[:page]).map(&:decorate)
   end
 
   def show
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def page
-    @posts = Post.all.page(params[:page]).map(&:decorate)
+    @posts = Post.active.ordered.page(params[:page]).map(&:decorate)
     render layout: false
   end
 

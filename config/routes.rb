@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root 'posts#index'
 
@@ -12,4 +14,6 @@ Rails.application.routes.draw do
   resources :spotify, controller: :posts
   resources :vimeo, controller: :posts
   resources :youtube, controller: :posts
+
+  mount Sidekiq::Web => '/sidekiq'
 end
