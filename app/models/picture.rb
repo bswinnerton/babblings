@@ -1,4 +1,6 @@
 class Picture < Post
+  class FetchImageError < StandardError; end
+
   has_attached_file :image,
     styles: { full: "#{FULL_WIDTH}", thumbnail: "#{THUMBNAIL_WIDTH}" },
     default_url: '/images/:style/missing.png',
@@ -6,8 +8,13 @@ class Picture < Post
     preserve_files: 'true'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  before_create :fetch_image
-  before_create :persist_dimensions
+  before_create :save_image
+  before_create :set_dimensions
+
+  def self.geometry(image)
+    g = Paperclip::Geometry.from_file(image)
+    [g.width.to_i, g.height.to_i, (g.height.to_f / g.width.to_f)]
+  end
 
   def width_for(size)
     size == :thumbnail ? THUMBNAIL_WIDTH : maximum_width
@@ -19,24 +26,23 @@ class Picture < Post
 
 private
 
+  def save_image
+    self.image = fetch_image
+  rescue FetchImageError
+    self.errors.add(:base, 'I had trouble grabbing that image.')
+    false
+  end
+
   def fetch_image
-    Timeout::timeout(20) { self.image = URI.parse(content) }
-  rescue
-    self.image = fetch_backup_image
-  #rescue OpenURI::HTTPError
-  #  self.errors.add(:base, 'I had trouble grabbing that image.')
-  #  false
+    Timeout::timeout(29) { URI.parse(content) }
+  rescue OpenURI::HTTPError, Timeout::Error
+    raise FetchImageError
   end
 
-  def fetch_backup_image
-    URI.parse(backup_content)
-  end
-
-  def persist_dimensions
-    geometry = Paperclip::Geometry.from_file(image.queued_for_write[:original])
-    self.width = geometry.width.to_i
-    self.height = geometry.height.to_i
-    self.ratio = height.to_f / width.to_f
+  def set_dimensions
+    return unless self.image
+    geometry = Picture.geometry(image.queued_for_write[:original])
+    self.width, self.height, self.ratio = geometry
   end
 
   def maximum_width
