@@ -20,10 +20,16 @@ class Picture < Post
 private
 
   def fetch_image
-    self.image = URI.parse(content)
-  rescue OpenURI::HTTPError
-    self.errors.add(:base, 'I had trouble grabbing that image.')
-    false
+    Timeout::timeout(20) { self.image = URI.parse(content) }
+  rescue
+    self.image = fetch_backup_image
+  #rescue OpenURI::HTTPError
+  #  self.errors.add(:base, 'I had trouble grabbing that image.')
+  #  false
+  end
+
+  def fetch_backup_image
+    URI.parse(backup_content)
   end
 
   def persist_dimensions
