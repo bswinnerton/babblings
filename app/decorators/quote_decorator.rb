@@ -4,6 +4,6 @@ class QuoteDecorator < Draper::Decorator
   delegate_all
 
   def render(options = {})
-    content.html_safe
+    "<div class='notepad'>#{content}</div>".html_safe
   end
 end
