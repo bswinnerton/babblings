@@ -9,8 +9,8 @@ class Picture < Post
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   process_in_background :image
 
-  before_create :save_image
-  before_create :set_dimensions
+  before_save :save_image
+  before_save :set_dimensions
 
   def self.geometry(image)
     g = Paperclip::Geometry.from_file(image)
