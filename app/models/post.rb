@@ -10,8 +10,8 @@ class Post < ActiveRecord::Base
 
   scope :ordered, -> { order created_at: :desc }
 
-  validates_presence_of :type
-  #TODO validates_inclusion_of :type, in: formats
+  validates :type, presence: true, inclusion: { in: ->(post) { formats } }
+  validates :content, uniqueness: true
 
   # Gather all active scopes from descendant classes and create master query
   # http://pivotallabs.com/merging-scopes-with-sti-models/

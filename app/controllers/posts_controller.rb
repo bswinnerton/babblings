@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = post_format_from_params.new(post_params)
+    @post = Post.new(post_params)
 
     if @post.save
       redirect_to @post
@@ -29,11 +29,6 @@ class PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:content)
-  end
-
-  def post_format_from_params
-    format = params[:post][:type]
-    format.constantize if Post.formats.include? params[:post][:type]
+    params.require(:post).permit(:type, :content)
   end
 end
