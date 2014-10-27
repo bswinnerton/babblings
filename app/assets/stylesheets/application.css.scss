@@ -14,10 +14,12 @@
  *= require_self
  */
 
+$logo_color: #43bbd9;
+
 .logo {
   text-align: center;
   font-size: 38px;
-  color: #43bbd9;
+  color: $logo-color;
   font-family: 'Lobster Two', cursive;
   height: 95px;
 
@@ -28,7 +30,7 @@
 
   a {
     text-decoration: none;
-    &:link { color: #43bbd9; }
-    &:visited { color: #43bbd9; }
+    &:link { color: $logo-color; }
+    &:visited { color: $logo-color; }
   }
 }
