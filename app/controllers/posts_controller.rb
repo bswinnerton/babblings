@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.active.ordered.page(params[:page]).map(&:decorate)
+    @posts = Post.active.ordered.page(params[:page]).per(40).map(&:decorate)
   end
 
   def show

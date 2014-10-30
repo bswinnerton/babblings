@@ -17,7 +17,7 @@ $(document).ready(function(){
     var currentPage = 1, currentXHR;
 
     $( window ).scroll(function() {
-      if ( $( window ).scrollTop() + $( window ).height() > $( document ).height() - 500 ) {
+      if ( $( window ).scrollTop() + $( window ).height() > $( document ).height() - 700 ) {
         if ( currentXHR ) { return; }
         currentPage++;
         currentXHR = $.ajax({
