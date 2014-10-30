@@ -24,6 +24,7 @@ group :production, :staging do
   gem 'rack-timeout'
   gem 'aws-sdk'
   gem 'raygun4ruby'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do
