@@ -1,7 +1,9 @@
-require 'codeclimate-test-reporter'
+unless ENV['CODECLIMATE_REPO_TOKEN'].empty?
+  require 'codeclimate-test-reporter'
 
-CodeClimate::TestReporter.start do
-  load_profile 'rails'
-  add_filter 'vendor/'
-  add_filter 'lib/core_importer/'
+  CodeClimate::TestReporter.start do
+    load_profile 'rails'
+    add_filter 'vendor/'
+    add_filter 'lib/core_importer/'
+  end
 end
