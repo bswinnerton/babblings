@@ -6,6 +6,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'factory_girl_rails'
+require 'paperclip/matchers'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -20,6 +21,7 @@ RSpec.configure do |config|
   config.include Shoulda::Matchers::ActionController
   config.include Shoulda::Matchers::ActiveModel
   config.include Shoulda::Matchers::ActiveRecord
+  config.include Paperclip::Shoulda::Matchers
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
