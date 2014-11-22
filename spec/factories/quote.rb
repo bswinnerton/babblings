@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :quote do
-    content "Life is what happens when you're busy making other plans."
+    sequence(:content) { |n| "Life is what happens when you're busy making other plans. #{n}" }
     type 'Quote'
   end
 end

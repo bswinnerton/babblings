@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
+  respond_to :html, :json
+
   def index
     @posts = Post.active.ordered.page(params[:page]).per(40).map(&:decorate)
+    respond_with(@posts)
   end
 
   def show
     @post = Post.find(params[:id]).decorate
+    respond_with(@post)
   end
 
   def new
@@ -23,7 +27,10 @@ class PostsController < ApplicationController
 
   def page
     @posts = Post.active.ordered.page(params[:page]).map(&:decorate)
-    render layout: false
+    respond_to do |format|
+      format.html { render layout: false }
+      format.json { render json: @posts }
+    end
   end
 
 private
