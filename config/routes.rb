@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     end
   end
 
+  scope '/api/v1/', defaults: {format: :json} do
+    get '/posts' => 'posts#index'
+    get '/posts/page/:page' => 'posts#page'
+    get '/posts/:id' => 'posts#show'
+  end
+
   resources :pictures, controller: :posts
   resources :quotes, controller: :posts
   resources :spotify, controller: :posts

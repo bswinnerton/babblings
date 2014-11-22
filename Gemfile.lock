@@ -131,6 +131,7 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.5.2)
+    rack-cors (0.2.9)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
@@ -263,6 +264,7 @@ DEPENDENCIES
   pg
   poltergeist
   pry-rails
+  rack-cors
   rack-timeout
   rails (= 4.1.6)
   rails_12factor

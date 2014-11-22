@@ -18,6 +18,7 @@ gem 'delayed_paperclip'
 gem 'kaminari'
 gem 'draper'
 gem 'paranoia'
+gem 'rack-cors', require: 'rack/cors'
 
 group :production, :staging do
   gem 'rails_12factor'
