@@ -9,10 +9,14 @@ Rails.application.routes.draw do
     end
   end
 
-  scope '/api/v1/', defaults: {format: :json} do
-    get '/posts' => 'posts#index'
-    get '/posts/page/:page' => 'posts#page'
-    get '/posts/:id' => 'posts#show'
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :posts, only: [:index, :show] do
+        collection do
+          get '/page/:page' => 'posts#page'
+        end
+      end
+    end
   end
 
   resources :pictures, controller: :posts
