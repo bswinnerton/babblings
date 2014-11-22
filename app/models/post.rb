@@ -10,14 +10,14 @@ class Post < ActiveRecord::Base
 
   acts_as_paranoid
 
-  def self.formats
-    subclasses.map(&:name)
-  end
+  validates :type, presence: true, inclusion: { in: ->(post) { formats } }
+  validates :content, uniqueness: true
 
   scope :ordered, -> { order created_at: :desc }
 
-  validates :type, presence: true, inclusion: { in: ->(post) { formats } }
-  validates :content, uniqueness: true
+  def self.formats
+    subclasses.map(&:name)
+  end
 
   # Gather all active scopes from descendant classes and create master query
   # http://pivotallabs.com/merging-scopes-with-sti-models/
