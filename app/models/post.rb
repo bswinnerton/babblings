@@ -1,6 +1,12 @@
 class Post < ActiveRecord::Base
   FULL_WIDTH = 930
   THUMBNAIL_WIDTH = 300
+  BLACKLISTED_ATTRIBUTES = %w(
+    image_file_name
+    image_content_type
+    image_file_size
+    backup_content
+  )
 
   acts_as_paranoid
 
@@ -18,5 +24,9 @@ class Post < ActiveRecord::Base
   def self.active
     query = subclasses.map { |m| m.active.where_values.inject(:and) }.inject(:or)
     where(query)
+  end
+
+  def as_json(options = {})
+    super(options).merge(type: self.type).except(*BLACKLISTED_ATTRIBUTES)
   end
 end
