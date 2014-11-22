@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.active.ordered.page(params[:page]).per(40).map(&:decorate)
+    @posts = post_query.active.ordered.page(params[:page]).per(40).map(&:decorate)
   end
 
   def show
-    @post = Post.find(params[:id]).decorate
+    @post = post_query.find(params[:id]).decorate
   end
 
   def new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def page
-    @posts = Post.active.ordered.page(params[:page]).map(&:decorate)
+    @posts = post_query.active.ordered.page(params[:page]).map(&:decorate)
     render layout: false
   end
 
@@ -30,5 +30,9 @@ private
 
   def post_params
     params.require(:post).permit(:type, :content)
+  end
+
+  def post_query
+    params[:type] ? Post.where(type: params[:type]) : Post
   end
 end

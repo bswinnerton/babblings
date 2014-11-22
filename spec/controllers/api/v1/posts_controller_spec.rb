@@ -35,23 +35,4 @@ describe Api::V1::PostsController do
     end
   end
 
-  describe 'GET "page"' do
-    let(:posts) { create_list :quote, Post.default_per_page + 1 }
-    let(:page) { 2 }
-
-    before do
-      allow(Post).to receive(:default_per_page).and_return 1
-      posts
-      get :page, page: page, format: :json
-    end
-
-    it 'returns HTTP success' do
-      expect(response).to be_success
-    end
-
-    it 'assigns @posts' do
-      expect(assigns(:posts)).to eq [posts.first]
-    end
-  end
-
 end
