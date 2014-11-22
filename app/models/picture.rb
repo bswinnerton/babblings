@@ -19,6 +19,13 @@ class Picture < Post
     [g.width.to_i, g.height.to_i, (g.height.to_f / g.width.to_f)]
   end
 
+  def as_json(options = {})
+    super(options).merge(
+      thumbnail_image: self.image(:thumbnail),
+      full_image: self.image(:full)
+    )
+  end
+
   def width_for(size)
     size == :thumbnail ? THUMBNAIL_WIDTH : maximum_width
   end
