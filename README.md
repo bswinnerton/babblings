@@ -23,6 +23,7 @@ Get a group of all posts, ordered by the most recent submission.
   "posts": [
     {
       "id": 295,
+      "type": "Picture",
       "content": "http://i.imgur.com/rDWyklm.jpg",
       "width": 930,
       "height": 620,
@@ -33,8 +34,7 @@ Get a group of all posts, ordered by the most recent submission.
       "deleted_at": null,
       "image_processing": false,
       "thumbnail_image": "http://s3.amazonaws.com/s3.babblin.gs/pictures/images/000/000/295/thumbnail/rDWyklm.jpg?1415160664",
-      "full_image": "http://s3.amazonaws.com/s3.babblin.gs/pictures/images/000/000/295/full/rDWyklm.jpg?1415160664",
-      "type": "Picture"
+      "full_image": "http://s3.amazonaws.com/s3.babblin.gs/pictures/images/000/000/295/full/rDWyklm.jpg?1415160664"
     },
   ...
   ]
@@ -53,6 +53,7 @@ Get one post, by id.
 {
   "posts": {
     "id": 296,
+    "type": "Vimeo",
     "content": "110449109",
     "width": null,
     "height": null,
@@ -62,7 +63,8 @@ Get one post, by id.
     "image_updated_at": null,
     "deleted_at": null,
     "image_processing": false,
-    "type": "Vimeo"
+    "thumbnail_image": null,
+    "full_image": null
   }
 }
 ```
@@ -80,6 +82,7 @@ Get a specific subset of posts, ordered by the most recent submission.
   "pictures": [
     {
       "id": 295,
+      "type": "Picture"
       "content": "http://i.imgur.com/rDWyklm.jpg",
       "width": 930,
       "height": 620,
@@ -91,7 +94,6 @@ Get a specific subset of posts, ordered by the most recent submission.
       "image_processing": false,
       "thumbnail_image": "http://s3.amazonaws.com/s3.babblin.gs/pictures/images/000/000/295/thumbnail/rDWyklm.jpg?1415160664",
       "full_image": "http://s3.amazonaws.com/s3.babblin.gs/pictures/images/000/000/295/full/rDWyklm.jpg?1415160664",
-      "type": "Picture"
     },
     ...
   ]
@@ -108,6 +110,7 @@ Get one post, of a specific subset, by id.
 {
   "pictures": {
     "id": 294,
+    "type": "Picture"
     "content": "http://i.imgur.com/c1foeTp.jpg",
     "width": 1190,
     "height": 799,
@@ -119,7 +122,6 @@ Get one post, of a specific subset, by id.
     "image_processing": false,
     "thumbnail_image": "http://s3.amazonaws.com/s3.babblin.gs/pictures/images/000/000/294/thumbnail/c1foeTp.jpg?1415160270",
     "full_image": "http://s3.amazonaws.com/s3.babblin.gs/pictures/images/000/000/294/full/c1foeTp.jpg?1415160270",
-    "type": "Picture"
   }
 }
 ```
