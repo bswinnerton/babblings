@@ -27,6 +27,14 @@ class Post < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super(options).merge(type: self.type).except(*BLACKLISTED_ATTRIBUTES)
+    super(options).merge(attribute_whitelist).except(*BLACKLISTED_ATTRIBUTES)
+  end
+
+private
+
+  def attribute_whitelist
+    {
+      type: self.type
+    }
   end
 end

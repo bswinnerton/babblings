@@ -20,10 +20,7 @@ class Picture < Post
   end
 
   def as_json(options = {})
-    super(options).merge(
-      thumbnail_image: self.image(:thumbnail),
-      full_image: self.image(:full)
-    )
+    super(options).merge(attribute_whitelist)
   end
 
   def width_for(size)
@@ -35,6 +32,13 @@ class Picture < Post
   end
 
 private
+
+  def attribute_whitelist
+    {
+      thumbnail_image: self.image(:thumbnail),
+      full_image: self.image(:full)
+    }
+  end
 
   def save_image
     self.image = fetch_image
