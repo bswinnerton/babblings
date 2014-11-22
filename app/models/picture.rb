@@ -36,7 +36,8 @@ private
   def attribute_whitelist
     {
       thumbnail_image: self.image(:thumbnail),
-      full_image: self.image(:full)
+      full_image: self.image(:full),
+      type: self.type # FIXME: Why doesn't super do this?
     }
   end
 
