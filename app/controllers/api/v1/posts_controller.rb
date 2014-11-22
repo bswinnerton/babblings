@@ -1,12 +1,12 @@
 class Api::V1::PostsController < ApplicationController
   def index
     @posts = post_query.active.ordered.page(params[:page])
-    render json: {resource => @posts}
+    render json: @posts, each_serializer: PostSerializer, root: resource
   end
 
   def show
     @post = post_query.find(params[:id])
-    render json: {resource => @post}
+    render json: @post, serializer: PostSerializer, root: resource
   end
 
 private

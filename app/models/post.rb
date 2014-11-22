@@ -25,16 +25,4 @@ class Post < ActiveRecord::Base
     query = subclasses.map { |m| m.active.where_values.inject(:and) }.inject(:or)
     where(query)
   end
-
-  def as_json(options = {})
-    super(options).merge(attribute_whitelist).except(*BLACKLISTED_ATTRIBUTES)
-  end
-
-private
-
-  def attribute_whitelist
-    {
-      type: self.type
-    }
-  end
 end
