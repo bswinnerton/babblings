@@ -20,19 +20,6 @@ describe Picture do
     end
   end
 
-  describe '#to_json' do
-    let(:picture) { create :picture }
-    let(:parsed_json) { JSON.parse(picture.to_json) }
-
-    it 'includes the thumbnail_image' do
-      expect(parsed_json.keys).to include 'thumbnail_image'
-    end
-
-    it 'includes the full_image' do
-      expect(parsed_json.keys).to include 'full_image'
-    end
-  end
-
   describe '#width_for' do
     context 'if the size passed is :thumbnail' do
       it 'returns the thumbnail image width'
