@@ -27,7 +27,7 @@ class Picture < Post
     size == :thumbnail ? (THUMBNAIL_WIDTH * ratio).round : (maximum_width * ratio).round
   end
 
-private
+  private
 
   def save_image
     self.image = fetch_image

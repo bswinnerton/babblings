@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     render layout: false
   end
 
-private
+  private
 
   def post_params
     params.require(:post).permit(:type, :content)

@@ -9,7 +9,7 @@ class Api::V1::PostsController < ApplicationController
     render json: @post, serializer: PostSerializer, root: resource
   end
 
-private
+  private
 
   def post_query
     type == 'Post' ? Post : Post.where(type: type)
