@@ -8,9 +8,9 @@ Rails.application.routes.draw do
       resources :posts, only: [:index, :show]
       resources :pictures, controller: :posts, only: [:index, :show], type: 'Picture'
       resources :quotes, controller: :posts, only: [:index, :show], type: 'Quote'
-      resources :spotify, controller: :posts, only: [:index, :show], type: 'Spotify'
-      resources :vimeo, controller: :posts, only: [:index, :show], type: 'Vimeo'
-      resources :youtube, controller: :posts, only: [:index, :show], type: 'Youtube'
+      resources :spotifys, controller: :posts, only: [:index, :show], type: 'Spotify'
+      resources :vimeos, controller: :posts, only: [:index, :show], type: 'Vimeo'
+      resources :youtubes, controller: :posts, only: [:index, :show], type: 'Youtube'
     end
   end
 
@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   end
   resources :pictures, controller: :posts, type: 'Picture'
   resources :quotes, controller: :posts, type: 'Quote'
-  resources :spotify, controller: :posts, type: 'Spotify'
-  resources :vimeo, controller: :posts, type: 'Vimeo'
-  resources :youtube, controller: :posts, type: 'Youtube'
+  resources :spotifys, controller: :posts, type: 'Spotify'
+  resources :vimeos, controller: :posts, type: 'Vimeo'
+  resources :youtubes, controller: :posts, type: 'Youtube'
 
   mount Sidekiq::Web => '/sidekiq'
 end
