@@ -51,8 +51,4 @@ private
   def maximum_width
     width < FULL_WIDTH ? width : FULL_WIDTH
   end
-
-  def maximum_height
-    height < FULL_HEIGHT ? height : FULL_HEIGHT
-  end
 end
