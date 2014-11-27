@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   )
 
   acts_as_paranoid
+  paginates_per 40
 
   validates :type, presence: true, inclusion: { in: ->(post) { formats } }
   validates :content, uniqueness: true

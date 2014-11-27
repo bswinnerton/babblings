@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  before_action :set_posts, only: [:index, :page]
+
   def index
-    @posts = post_query.active.ordered.page(params[:page]).per(40).map(&:decorate)
   end
 
   def show
@@ -22,7 +23,6 @@ class PostsController < ApplicationController
   end
 
   def page
-    @posts = post_query.active.ordered.page(params[:page]).map(&:decorate)
     render layout: false
   end
 
@@ -34,5 +34,9 @@ class PostsController < ApplicationController
 
   def post_query
     params[:type] ? Post.where(type: params[:type]) : Post
+  end
+
+  def set_posts
+    @posts = post_query.active.ordered.page(params[:page]).map(&:decorate)
   end
 end
