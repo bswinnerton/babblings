@@ -24,7 +24,7 @@ class Picture < Post
   end
 
   def height_for(size)
-    size == :thumbnail ? (THUMBNAIL_WIDTH * ratio).round : (maximum_width * ratio).round
+    size == :thumbnail ? thumbnail_height : maximum_height
   end
 
   private
@@ -46,6 +46,14 @@ class Picture < Post
     return unless self.image
     geometry = Picture.geometry(image.queued_for_write[:original])
     self.width, self.height, self.ratio = geometry
+  end
+
+  def thumbnail_height
+    (THUMBNAIL_WIDTH * ratio).round
+  end
+
+  def maximum_height
+    (maximum_width * ratio).round
   end
 
   def maximum_width
