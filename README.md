@@ -86,7 +86,7 @@ Get a specific subset of posts, ordered by the most recent submission.
   "pictures": [
     {
       "id": 295,
-      "type": "Picture"
+      "type": "Picture",
       "content": "http://i.imgur.com/rDWyklm.jpg",
       "width": 930,
       "height": 620,
@@ -114,7 +114,7 @@ Get one post, of a specific subset, by id.
 {
   "pictures": {
     "id": 294,
-    "type": "Picture"
+    "type": "Picture",
     "content": "http://i.imgur.com/c1foeTp.jpg",
     "width": 1190,
     "height": 799,
