@@ -4,6 +4,6 @@ class YoutubeDecorator < Draper::Decorator
   delegate_all
 
   def render(options = {})
-    "<iframe src='http://www.youtube.com/embed/#{content}?showinfo=0&controls=0' width='#{width}' height='#{height}' frameborder='0'></iframe>".html_safe
+    content_tag :iframe, nil, src: embed_url, width: width, height: height
   end
 end

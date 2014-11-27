@@ -4,6 +4,6 @@ class VimeoDecorator < Draper::Decorator
   delegate_all
 
   def render(options = {})
-    "<iframe src='http://player.vimeo.com/video/#{content}?portrait=0&byline=0&title=0' width='#{width}' height='#{height}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>".html_safe
+    content_tag :iframe, nil, src: embed_url, width: width, height: height
   end
 end

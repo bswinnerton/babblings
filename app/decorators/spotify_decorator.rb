@@ -4,6 +4,6 @@ class SpotifyDecorator < Draper::Decorator
   delegate_all
 
   def render(options = {})
-    "<iframe src='https://embed.spotify.com/?uri=spotify:track:#{content}&amp;view=coverart' width='#{width}' height='80' frameborder='0' allowtransparency='true'></iframe>".html_safe
+    content_tag :iframe, nil, src: embed_url, width: width, height: 80
   end
 end
