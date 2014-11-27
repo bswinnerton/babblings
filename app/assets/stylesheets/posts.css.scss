@@ -1,6 +1,10 @@
 .posts {
   margin: 20px auto;
 
+  iframe {
+    border: 0;
+  }
+
   .post {
     width: 300px;
     margin-bottom: 15px;
