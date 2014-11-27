@@ -1,12 +1,6 @@
 class Post < ActiveRecord::Base
   FULL_WIDTH = 930
   THUMBNAIL_WIDTH = 300
-  BLACKLISTED_ATTRIBUTES = %w(
-    image_file_name
-    image_content_type
-    image_file_size
-    backup_content
-  )
 
   acts_as_paranoid
   paginates_per 40
