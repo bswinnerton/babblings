@@ -1,5 +1,9 @@
 # babblings
 
+[![Build Status](https://semaphoreapp.com/api/v1/projects/dddcfd25-0926-450e-908d-4bfc47c3b270/274770/shields_badge.svg)](https://semaphoreapp.com/bswinnerton/babblings--2)
+[![Code Climate](https://codeclimate.com/github/bswinnerton/babblings/badges/gpa.svg)](https://codeclimate.com/github/bswinnerton/babblings)
+[![Test Coverage](https://codeclimate.com/github/bswinnerton/babblings/badges/coverage.svg)](https://codeclimate.com/github/bswinnerton/babblings)
+
 This is a masonry-layout Rails application that supports multiple content types (Picture, Youtube video, Vimeo video, Spotify song and Quotes). It can be seen at http://babblin.gs.
 
 New posts can be created at [http://babblin.gs/posts/new](http://babblin.gs/posts/new)
