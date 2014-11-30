@@ -1,5 +1,5 @@
 class Picture < Post
-  class FetchImageError < StandardError; end
+  include Fetchable
 
   has_attached_file :image,
     styles: { full: "#{FULL_WIDTH}", thumbnail: "#{THUMBNAIL_WIDTH}" },
@@ -9,7 +9,7 @@ class Picture < Post
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   process_in_background :image
 
-  before_save :save_image
+  fetches :image, from: :content
   before_save :set_dimensions
 
   scope :active, -> { where(image_processing: false) }
@@ -26,19 +26,6 @@ class Picture < Post
   end
 
   private
-
-  def save_image
-    self.image = fetch_image
-  rescue FetchImageError
-    self.errors.add(:base, 'I had trouble grabbing that image.')
-    false
-  end
-
-  def fetch_image
-    Timeout::timeout(29) { URI.parse(content) }
-  rescue OpenURI::HTTPError, Timeout::Error
-    raise FetchImageError
-  end
 
   def set_dimensions
     return unless self.image
