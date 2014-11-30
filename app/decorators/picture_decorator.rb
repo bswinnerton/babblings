@@ -10,7 +10,8 @@ class PictureDecorator < Draper::Decorator
   private
 
   def image_tag_with_dimensions(size)
-    image_tag image.url(size), width: width_for(size), height: height_for(size)
+    width, height = for_dimensions(size)
+    image_tag image.url(size), width: width, height: height
   end
 
   def linked_image_tag(size)

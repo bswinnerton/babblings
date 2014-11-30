@@ -20,18 +20,21 @@ describe Picture do
     end
   end
 
-  describe '#width_for' do
+  describe '#for_dimensions' do
     context 'if the size passed is :thumbnail' do
       it 'returns the thumbnail image width'
+      it 'returns the thumbnail image height'
     end
 
     context 'if the size passed is anything else' do
       context 'if the image width is less than the maximum' do
         it 'returns the image width'
+        it 'returns the image height'
       end
 
       context 'if the image width is larger than the maximum' do
         it 'returns the maximum image width'
+        it 'returns the maximum image height'
       end
     end
   end

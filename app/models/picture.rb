@@ -19,12 +19,10 @@ class Picture < Post
     [g.width.to_i, g.height.to_i, (g.height.to_f / g.width.to_f)]
   end
 
-  def width_for(size)
-    size == :thumbnail ? THUMBNAIL_WIDTH : maximum_width
-  end
-
-  def height_for(size)
-    size == :thumbnail ? thumbnail_height : maximum_height
+  def for_dimensions(size)
+    width = size == :thumbnail ? THUMBNAIL_WIDTH : maximum_width
+    height = size == :thumbnail ? thumbnail_height : maximum_height
+    [width, height]
   end
 
   private
