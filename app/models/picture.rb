@@ -2,9 +2,9 @@ class Picture < Post
   include Fetchable
 
   has_attached_file :image,
-    styles: { full: "#{FULL_WIDTH}", thumbnail: "#{THUMBNAIL_WIDTH}" },
+    styles: {full: "#{FULL_WIDTH}", thumbnail: "#{THUMBNAIL_WIDTH}"},
     default_url: 'missing_:style.png',
-    convert_options: { full: '-quality 100' },
+    convert_options: {full: '-quality 100'},
     preserve_files: 'true'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   process_in_background :image
