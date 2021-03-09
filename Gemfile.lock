@@ -934,7 +934,7 @@ GEM
     multi_json (1.14.1)
     multi_xml (0.6.0)
     newrelic_rpm (6.7.0.359)
-    nokogiri (1.10.5)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     paperclip (6.1.0)
       activemodel (>= 4.2.0)
